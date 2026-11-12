@@ -23,7 +23,34 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:#879188;font-size:1
 @media(max-width:800px){.wrap{width:min(100% - 34px,600px)}nav{height:68px}.nav-cta{display:none}.menu{display:block}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;padding:24px;background:#111111;border-bottom:1px solid var(--line);flex-direction:column;gap:20px}.navlinks.open{display:flex}.hero{grid-template-columns:1fr;padding:75px 0;gap:40px;min-height:auto}.hero-visual{min-height:370px}.hero-visual:before{width:240px;height:240px}.hero-visual:after{width:320px;height:320px}.monogram{font-size:190px}.section-head{display:block}.section-head p{margin-top:22px}.about-grid,.contact-grid{grid-template-columns:1fr;gap:38px}.skills{grid-template-columns:1fr 1fr}.projects{grid-template-columns:1fr}.project{min-height:310px}section{padding:78px 0}footer .wrap{flex-direction:column}}
 @media(max-width:420px){.skills{grid-template-columns:1fr}.hero-actions{gap:16px;flex-wrap:wrap}.project-foot{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-</style>
+
+/* Liquid glass direction — monochrome, translucent, softly refractive */
+:root{--bg:#070707;--panel:rgba(255,255,255,.055);--panel2:rgba(255,255,255,.09);--text:#fff;--muted:#b4b4b4;--line:rgba(255,255,255,.19);--accent:#fff;--accent2:#d7d7d7}
+body{background:radial-gradient(ellipse at 14% 12%,rgba(255,255,255,.13),transparent 32%),radial-gradient(ellipse at 86% 42%,rgba(190,190,190,.10),transparent 30%),radial-gradient(ellipse at 48% 95%,rgba(255,255,255,.075),transparent 34%),#070707;background-attachment:fixed}
+header{background:rgba(12,12,12,.48);backdrop-filter:blur(28px) saturate(160%);-webkit-backdrop-filter:blur(28px) saturate(160%);border-bottom:1px solid rgba(255,255,255,.16)}
+.nav-cta,.btn,.hero-visual,.about-graphic,.skill,.project,.contact-card{border:1px solid rgba(255,255,255,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 18px 55px rgba(0,0,0,.22)}
+.nav-cta{background:rgba(255,255,255,.055);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:999px}
+.btn{background:rgba(255,255,255,.9);color:#080808;border-radius:999px;box-shadow:inset 0 1px 1px rgba(255,255,255,.8),0 8px 28px rgba(255,255,255,.08)}
+.btn:hover{background:#fff}
+.hero-visual{background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.025) 48%,rgba(255,255,255,.08));backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border-radius:34px}
+.hero-visual:before,.hero-visual:after{border-color:rgba(255,255,255,.17)}
+.orbit{border-color:rgba(255,255,255,.35)}
+.orb{background:#fff;box-shadow:0 0 30px rgba(255,255,255,.8)}
+.monogram{ -webkit-text-stroke:1px rgba(255,255,255,.92)}
+.about{background:rgba(255,255,255,.035);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-color:rgba(255,255,255,.12)}
+.about-graphic{background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.025));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:28px}
+.about-graphic:before{border-color:rgba(255,255,255,.22)}
+.skills .skill{background:linear-gradient(135deg,rgba(255,255,255,.105),rgba(255,255,255,.025));backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);border-radius:22px}
+.skill:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.12)}
+.project{border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.025) 65%);backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%)}
+.project:nth-child(1),.project:nth-child(2),.project:nth-child(3),.project:nth-child(4){background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.025) 68%)}
+.project:nth-child(2) .project-art,.project:nth-child(3) .project-art,.project:nth-child(4) .project-art{color:#fff}
+.contact{background:rgba(255,255,255,.035);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:rgba(255,255,255,.12)}
+.contact-card{background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);border-radius:26px}
+.contact-card .row{border-color:rgba(255,255,255,.13)}
+footer{border-color:rgba(255,255,255,.14)}
+@media(max-width:800px){.navlinks{background:rgba(12,12,12,.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}.hero-visual{border-radius:26px}.project{border-radius:24px}}
+\n</style>
 </head>
 <body>
 <header><div class="wrap"><nav><a class="brand" href="#home">BLOOM <span>CREATIVES.</span></a><button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><div class="navlinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div><a class="nav-cta" href="#contact">LET'S CONNECT ↗</a></nav></div></header>
