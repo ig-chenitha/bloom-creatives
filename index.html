@@ -9,93 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#080808;--panel:#111111;--panel2:#191919;--text:#ffffff;--muted:#a0a0a0;--line:rgba(255,255,255,.14);--accent:#ffffff;--accent2:#cccccc}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 48px));margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(8,8,8,.86);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}nav{height:78px;display:flex;align-items:center;justify-content:space-between}.brand{font-family:Manrope,sans-serif;font-size:14px;font-weight:800;letter-spacing:.16em}.brand span{color:var(--accent)}.navlinks{display:flex;gap:34px;color:var(--muted);font-size:13px}.navlinks a{transition:color .2s}.navlinks a:hover{color:var(--accent)}.nav-cta{border:1px solid var(--line);padding:11px 17px;border-radius:3px;font-size:12px}.menu{display:none;background:none;border:0;color:var(--text);font-size:25px}
-.hero{min-height:690px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:60px;padding:100px 0}.kicker{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.2em;font-size:10px;font-weight:700;color:var(--accent)}.kicker:before{content:"";width:28px;height:1px;background:var(--accent)}h1,h2,h3,p{margin-top:0}h1{font-family:Manrope,sans-serif;font-size:clamp(56px,8vw,104px);letter-spacing:-.075em;line-height:.98;margin:25px 0 24px;font-weight:700}h1 em{font-style:normal;color:var(--accent)}.hero-copy{max-width:490px;color:var(--muted);font-size:15px;line-height:1.85}.hero-actions{display:flex;align-items:center;gap:24px;margin-top:35px}.btn{display:inline-flex;align-items:center;gap:22px;background:var(--accent);color:#10150c;padding:16px 21px;font-size:12px;font-weight:800;border-radius:3px;transition:.25s}.btn:hover{background:#e6e6e6;transform:translateY(-3px)}.underlink{font-size:12px;color:var(--text);border-bottom:1px solid #687168;padding:8px 0}.hero-visual{min-height:465px;position:relative;background:radial-gradient(circle at 50% 45%,#303030 0,#191919 38%,#0d0d0d 72%);border:1px solid var(--line);overflow:hidden;display:grid;place-items:center}.hero-visual:before,.hero-visual:after{content:"";position:absolute;width:330px;height:330px;border:1px solid rgba(255,255,255,.18);border-radius:50%}.hero-visual:after{width:430px;height:430px}.orbit{position:absolute;width:260px;height:260px;border:1px dashed rgba(255,255,255,.38);border-radius:50%;animation:spin 28s linear infinite}.orb{position:absolute;width:14px;height:14px;background:var(--accent);border-radius:50%;top:28px;left:46px;box-shadow:0 0 30px var(--accent)}.monogram{font-family:Manrope,sans-serif;font-size:clamp(150px,22vw,250px);font-weight:800;letter-spacing:-.14em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.85);padding-right:35px;z-index:1}.visual-caption{position:absolute;bottom:24px;left:25px;right:25px;display:flex;justify-content:space-between;color:#9ba69b;text-transform:uppercase;letter-spacing:.16em;font-size:9px}.visual-caption span:last-child{color:var(--accent)}@keyframes spin{to{transform:rotate(360deg)}}
-section{padding:105px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:48px}.section-head h2,.about-copy h2,.contact h2{font-family:Manrope,sans-serif;font-size:clamp(38px,5vw,62px);letter-spacing:-.065em;line-height:1.05;margin:14px 0 0}.section-head h2 em,.about-copy h2 em,.contact h2 em{font-style:normal;color:var(--accent)}.section-head p{max-width:360px;color:var(--muted);font-size:13px;line-height:1.8;margin:0}
-.about{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:100px;align-items:center}.about-graphic{min-height:350px;background:linear-gradient(145deg,#292929,#111111);border:1px solid rgba(255,255,255,.22);display:grid;place-items:center;position:relative;overflow:hidden}.about-graphic:before{content:"";position:absolute;width:270px;height:270px;border:1px solid rgba(255,255,255,.2);border-radius:50%}.about-graphic strong{font-family:Manrope,sans-serif;font-size:170px;letter-spacing:-.13em;color:var(--accent);z-index:1}.about-graphic small{position:absolute;bottom:22px;left:22px;color:#8d9a8e;font-size:9px;letter-spacing:.2em}.about-copy h2{margin:17px 0 25px}.about-copy p{color:var(--muted);font-size:14px;line-height:1.9;max-width:600px}
-.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.skill{padding:24px 22px;background:var(--panel);border:1px solid var(--line);min-height:125px;transition:.2s}.skill:hover{border-color:rgba(255,255,255,.55);transform:translateY(-4px)}.skill b{display:block;font-family:Manrope,sans-serif;font-size:15px;margin-bottom:9px}.skill span{font-size:11px;color:var(--muted)}
-.projects{display:grid;grid-template-columns:1fr 1fr;gap:18px}.project{min-height:350px;position:relative;overflow:hidden;padding:25px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line);background:var(--panel)}.project:nth-child(1){background:linear-gradient(145deg,#292929,#111111)}.project:nth-child(2){background:linear-gradient(145deg,#303030,#171717)}.project:nth-child(3){background:linear-gradient(145deg,#252525,#111111)}.project:nth-child(4){background:linear-gradient(145deg,#333333,#171717)}.project-label{display:flex;justify-content:space-between;color:#b0b9b0;text-transform:uppercase;letter-spacing:.15em;font-size:9px}.project-art{flex:1;display:grid;place-items:center;text-align:center;font-family:Manrope,sans-serif;font-size:clamp(42px,6vw,78px);line-height:.9;letter-spacing:-.08em;font-weight:800;color:var(--accent);text-shadow:0 10px 50px rgba(0,0,0,.25)}.project:nth-child(2) .project-art{color:#ffffff}.project:nth-child(3) .project-art{color:#d8d8d8}.project:nth-child(4) .project-art{color:#bdbdbd}.project-foot{display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:600}.project-foot span:last-child{color:#9ba49b;font-size:10px;font-weight:400}
-.contact{background:var(--panel);border-top:1px solid var(--line)}.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}.contact h2{font-size:clamp(48px,7vw,82px);margin:18px 0 22px}.contact-copy{max-width:450px;color:var(--muted);font-size:14px;line-height:1.8}.contact-card{border:1px solid var(--line);padding:30px;background:#0c0c0c}.contact-card .row{padding:17px 0;border-bottom:1px solid var(--line)}.contact-card .row:last-child{border:0}.contact-card label{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.18em;margin-bottom:8px}.contact-card a{font-size:14px;font-weight:600;overflow-wrap:anywhere}.contact-card a:hover{color:var(--accent)}
-footer{border-top:1px solid var(--line);padding:25px 0;color:#879188;font-size:10px;letter-spacing:.12em}footer .wrap{display:flex;justify-content:space-between;gap:18px}
-@media(max-width:800px){.wrap{width:min(100% - 34px,600px)}nav{height:68px}.nav-cta{display:none}.menu{display:block}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;padding:24px;background:#111111;border-bottom:1px solid var(--line);flex-direction:column;gap:20px}.navlinks.open{display:flex}.hero{grid-template-columns:1fr;padding:75px 0;gap:40px;min-height:auto}.hero-visual{min-height:370px}.hero-visual:before{width:240px;height:240px}.hero-visual:after{width:320px;height:320px}.monogram{font-size:190px}.section-head{display:block}.section-head p{margin-top:22px}.about-grid,.contact-grid{grid-template-columns:1fr;gap:38px}.skills{grid-template-columns:1fr 1fr}.projects{grid-template-columns:1fr}.project{min-height:310px}section{padding:78px 0}footer .wrap{flex-direction:column}}
-@media(max-width:420px){.skills{grid-template-columns:1fr}.hero-actions{gap:16px;flex-wrap:wrap}.project-foot{flex-direction:column}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-
-/* Liquid glass direction — monochrome, translucent, softly refractive */
-:root{--bg:#070707;--panel:rgba(255,255,255,.055);--panel2:rgba(255,255,255,.09);--text:#fff;--muted:#b4b4b4;--line:rgba(255,255,255,.19);--accent:#fff;--accent2:#d7d7d7}
-body{background:radial-gradient(ellipse at 14% 12%,rgba(255,255,255,.13),transparent 32%),radial-gradient(ellipse at 86% 42%,rgba(190,190,190,.10),transparent 30%),radial-gradient(ellipse at 48% 95%,rgba(255,255,255,.075),transparent 34%),#070707;background-attachment:fixed}
-header{background:rgba(12,12,12,.48);backdrop-filter:blur(28px) saturate(160%);-webkit-backdrop-filter:blur(28px) saturate(160%);border-bottom:1px solid rgba(255,255,255,.16)}
-.nav-cta,.btn,.hero-visual,.about-graphic,.skill,.project,.contact-card{border:1px solid rgba(255,255,255,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 18px 55px rgba(0,0,0,.22)}
-.nav-cta{background:rgba(255,255,255,.055);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:999px}
-.btn{background:rgba(255,255,255,.9);color:#080808;border-radius:999px;box-shadow:inset 0 1px 1px rgba(255,255,255,.8),0 8px 28px rgba(255,255,255,.08)}
-.btn:hover{background:#fff}
-.hero-visual{background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.025) 48%,rgba(255,255,255,.08));backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border-radius:34px}
-.hero-visual:before,.hero-visual:after{border-color:rgba(255,255,255,.17)}
-.orbit{border-color:rgba(255,255,255,.35)}
-.orb{background:#fff;box-shadow:0 0 30px rgba(255,255,255,.8)}
-.monogram{ -webkit-text-stroke:1px rgba(255,255,255,.92)}
-.about{background:rgba(255,255,255,.035);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-color:rgba(255,255,255,.12)}
-.about-graphic{background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.025));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:28px}
-.about-graphic:before{border-color:rgba(255,255,255,.22)}
-.skills .skill{background:linear-gradient(135deg,rgba(255,255,255,.105),rgba(255,255,255,.025));backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);border-radius:22px}
-.skill:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.12)}
-.project{border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.025) 65%);backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%)}
-.project:nth-child(1),.project:nth-child(2),.project:nth-child(3),.project:nth-child(4){background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.025) 68%)}
-.project:nth-child(2) .project-art,.project:nth-child(3) .project-art,.project:nth-child(4) .project-art{color:#fff}
-.contact{background:rgba(255,255,255,.035);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:rgba(255,255,255,.12)}
-.contact-card{background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);border-radius:26px}
-.contact-card .row{border-color:rgba(255,255,255,.13)}
-footer{border-color:rgba(255,255,255,.14)}
-@media(max-width:800px){.navlinks{background:rgba(12,12,12,.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}.hero-visual{border-radius:26px}.project{border-radius:24px}}
-\n
-/* Rounded floating liquid-glass navbar */
-header{background:transparent;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;padding:14px 0}
-header .wrap{width:min(1180px,calc(100% - 48px))}
-nav{height:68px;padding:0 22px;border:1px solid rgba(255,255,255,.22);border-radius:24px;background:rgba(255,255,255,.075);backdrop-filter:blur(30px) saturate(170%);-webkit-backdrop-filter:blur(30px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 14px 40px rgba(0,0,0,.25)}
-@media(max-width:800px){header{padding:10px 0}header .wrap{width:calc(100% - 28px)}nav{height:62px;padding:0 16px;border-radius:20px}.navlinks{top:76px;left:14px;right:14px;border:1px solid rgba(255,255,255,.2);border-radius:20px}}
-\n
-/* Remove visible navbar/header outlines and divider lines */
-header{border:0!important;box-shadow:none!important}
-nav{border:0!important;outline:0!important;box-shadow:none!important}
-\n
-/* Keep the glass navbar's top and bottom edges, remove only its two side edges */
-nav{border:0!important;border-top:1px solid rgba(255,255,255,.18)!important;border-bottom:1px solid rgba(255,255,255,.18)!important;border-radius:24px!important}
-\n
-/* Remove the four rounded corner/side strokes; keep only clean horizontal edges */
-nav{
-  border-left:0!important;
-  border-right:0!important;
-  border-radius:0!important;
-  box-shadow:none!important;
-}
-\n
-/* Deep pure-black page background */
-:root{--bg:#000000}
-html,body{background:#000000!important}
-body{
-  background:#000000!important;
-  background-image:none!important;
-}
-\n
-/* Keep only the floating liquid-glass navbar; remove the wide empty side gutters */
-header{padding:10px 0!important;background:transparent!important;border:0!important}
-header .wrap{width:100%!important;max-width:none!important;margin:0!important;padding:0 12px!important}
-nav{
-  width:100%!important;
-  margin:0!important;
-  border-radius:24px!important;
-  border-left:1px solid rgba(255,255,255,.18)!important;
-  border-right:1px solid rgba(255,255,255,.18)!important;
-}
-@media(max-width:800px){
-  header{padding:8px 0!important}
-  header .wrap{padding:0 10px!important}
-  nav{border-radius:20px!important}
-}
-\n</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header><div class="wrap"><nav><a class="brand" href="#home">BLOOM <span>CREATIVES.</span></a><button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><div class="navlinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div><a class="nav-cta" href="#contact">LET'S CONNECT ↗</a></nav></div></header>
@@ -107,11 +21,6 @@ nav{
 <section class="contact" id="contact"><div class="wrap contact-grid"><div><div class="kicker">Have a project in mind?</div><h2>Let's make<br><em>it happen.</em></h2><p class="contact-copy">Have a project, collaboration or creative idea? I'd love to hear from you. Let's create something meaningful together.</p><a class="btn" href="mailto:hello@bloomcreatives.com">START A CONVERSATION ↗</a></div><div class="contact-card"><div class="row"><label>Email</label><a href="mailto:hello@bloomcreatives.com">hello@bloomcreatives.com</a></div><div class="row"><label>Instagram</label><a href="https://instagram.com/" target="_blank" rel="noreferrer">@yourinstagram</a></div><div class="row"><label>Location</label><a href="#home">Sri Lanka · Working worldwide</a></div></div></div></section>
 </main>
 <footer><div class="wrap"><span>© <span id="year"></span> BLOOM CREATIVES</span><span>DESIGNED WITH INTENTION.</span></div></footer>
-<script>
-const menuButton=document.querySelector('.menu');const navLinks=document.querySelector('.navlinks');
-menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
-navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
+<script src="script.js" defer></script>
 </body>
 </html>
