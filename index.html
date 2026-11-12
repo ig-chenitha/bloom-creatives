@@ -79,6 +79,22 @@ body{
   background:#000000!important;
   background-image:none!important;
 }
+\n
+/* Keep only the floating liquid-glass navbar; remove the wide empty side gutters */
+header{padding:10px 0!important;background:transparent!important;border:0!important}
+header .wrap{width:100%!important;max-width:none!important;margin:0!important;padding:0 12px!important}
+nav{
+  width:100%!important;
+  margin:0!important;
+  border-radius:24px!important;
+  border-left:1px solid rgba(255,255,255,.18)!important;
+  border-right:1px solid rgba(255,255,255,.18)!important;
+}
+@media(max-width:800px){
+  header{padding:8px 0!important}
+  header .wrap{padding:0 10px!important}
+  nav{border-radius:20px!important}
+}
 \n</style>
 </head>
 <body>
