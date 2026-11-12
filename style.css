@@ -84,3 +84,9 @@ nav{
   nav{border-radius:20px!important}
 }
 \n
+
+/* Uploaded BLOOM CREATIVES brand logo in the navbar */
+.brand{display:inline-flex;align-items:center;flex:0 0 auto}
+.brand img{display:block;width:190px;height:auto;max-height:42px;object-fit:contain;object-position:left center}
+@media(max-width:800px){.brand img{width:155px;max-height:34px}}
+@media(max-width:420px){.brand img{width:135px;max-height:30px}}
