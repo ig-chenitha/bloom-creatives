@@ -70,15 +70,8 @@ footer{min-height:90px;display:flex;align-items:center;justify-content:space-bet
 @media(max-width:390px){.hero-meta{flex-wrap:wrap}.hero-art{height:360px}.glass-orb{width:290px}.small-orb{width:85px;height:55px}.work-card{min-height:290px}.work-art{font-size:58px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
-/* Reuse the official BLOOM logo wherever the brand name appears. */
-.wordmark-inline{display:inline-block;width:74px;height:auto;max-height:13px;object-fit:contain;vertical-align:-2px}
-.section-wordmark{width:61px;max-height:10px;vertical-align:-1px}
-.paragraph-wordmark{width:72px;max-height:12px;vertical-align:-2px}
 .footer-brand{display:flex;align-items:center}
 .footer-brand img{display:block;width:82px;height:auto;max-height:18px;object-fit:contain}
 @media(max-width:700px){
- .wordmark-inline{width:68px}
- .section-wordmark{width:58px}
- .paragraph-wordmark{width:68px}
  .footer-brand img{width:76px}
 }
