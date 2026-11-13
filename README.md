@@ -1,21 +1,17 @@
 # BLOOM CREATIVES
 
-A personal portfolio website for **BLOOM CREATIVES**, showcasing graphic design, visual identity, and digital design work.
+A responsive graphic design portfolio with an electric-blue, deep-black visual direction and a custom liquid-glass navigation experience.
 
-## ✦ About
+## Design direction
 
-BLOOM CREATIVES is the portfolio of an independent graphic designer. The website is designed with a minimal black-and-white visual direction and a modern liquid-glass interface.
+- Neon blue, cyan and midnight-black palette
+- Floating liquid-glass navigation
+- CSS-rendered glossy 3D sphere hero artwork
+- Responsive work, services, about and contact sections
+- Rounded glass-inspired cards and subtle motion
+- Accessible mobile navigation and reduced-motion support
 
-## ✦ Features
-
-- Modern, responsive portfolio layout
-- Monochrome black-and-white theme
-- Liquid-glass navigation and UI styling
-- About, Skills, Projects, and Contact sections
-- Custom BLOOM CREATIVES logo
-- Mobile-friendly navigation
-
-## ✦ Project Structure
+## Project structure
 
 ```
 bloom-creatives/
@@ -26,34 +22,16 @@ bloom-creatives/
     └── bloom-logo.svg
 ```
 
-## ✦ Run Locally
+## Run locally
 
-1. Clone the repository:
+Open `index.html` in a modern browser. No build tools or package installation are required.
 
-   ```bash
-   git clone https://github.com/ig-chenitha/bloom-creatives.git
-   ```
+## Publish with GitHub Pages
 
-2. Open the project folder.
-3. Open `index.html` in your browser.
+The site is a static HTML, CSS and JavaScript project and can be published using GitHub Pages from the repository's `main` branch.
 
-No build tools or package installation are required.
-
-## ✦ Built With
-
-- HTML5
-- CSS3
-- JavaScript
-- SVG
-
-## ✦ Live Website
-
-[https://ig-chenitha.github.io/bloom-creatives/](https://ig-chenitha.github.io/bloom-creatives/)
-
-## ✦ Repository
-
-[https://github.com/ig-chenitha/bloom-creatives](https://github.com/ig-chenitha/bloom-creatives)
+Live site: https://ig-chenitha.github.io/bloom-creatives/
 
 ---
 
-Designed with creativity by **BLOOM CREATIVES**.
+Designed with intention by **BLOOM CREATIVES**.
