@@ -45,11 +45,22 @@
 <label class="contact-field"><span>YOUR NAME</span><input name="name" type="text" placeholder="Enter your name" minlength="2" maxlength="80" autocomplete="name" required></label>
 <label class="contact-field"><span>EMAIL ADDRESS</span><input name="email" type="email" placeholder="you@example.com" maxlength="254" autocomplete="email" required></label>
 <label class="contact-field"><span>WHAT DO YOU NEED?</span><select name="service" required><option value="" disabled selected>Select a service</option><option>Brand Identity</option><option>Social Media Design</option><option>Graphic Design</option><option>Creative Direction</option><option>Other / Collaboration</option></select></label>
+<label class="contact-field"><span>ESTIMATED PROJECT BUDGET (LKR)</span>
+<select name="budget">
+<option value="" selected>Choose your budget (optional)</option>
+<option>Under LKR 10,000</option>
+<option>LKR 10,000 – 25,000</option>
+<option>LKR 25,000 – 50,000</option>
+<option>LKR 50,000 – 100,000</option>
+<option>LKR 100,000+</option>
+<option>Not sure yet</option>
+</select>
+</label>
 <label class="contact-field"><span>TELL ME ABOUT YOUR PROJECT</span><textarea name="message" rows="5" minlength="10" maxlength="2000" placeholder="A few details about your idea, goals or timeline..." required></textarea></label>
-<div class="contact-form-bottom"><p id="contact-status" role="status" aria-live="polite">Your message will be sent securely through this website.</p><button class="contact-send" type="submit">SEND MESSAGE <span>↗</span></button></div>
+<div class="contact-form-bottom"><p id="contact-status" role="status" aria-live="polite">Your message will be sent securely through this website.</p><button class="contact-send" type="submit">SUBMIT INQUIRY <span>↗</span></button></div>
 </form>
 </div>
 </section>
 </main>
 <footer class="section-wrap"><a class="footer-brand" href="index.html#home" aria-label="BLOOM home"><img src="assets/bloom-logo.svg" alt="BLOOM"></a><span>© <span id="year"></span> BLOOM CREATIVES | INDEPENDENT CREATIVE DESIGNER</span><a href="index.html#home">BACK TO HOME ↑</a></footer>
-<script src="script.js" defer></script><script src="contact.js?v=20261114-web3forms" defer></script></body></html>
+<script src="script.js" defer></script><script src="contact.js?v=20261115-budget-inquiry" defer></script></body></html>
