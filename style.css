@@ -958,3 +958,29 @@ a:focus,a:active,a:focus-visible,
   border-bottom-right-radius:21px!important;
   border-bottom:0!important;
 }
+
+
+/* Home hero: remove the 3D orb artwork and use a clean single-column layout */
+#home.hero{
+  min-height:min(820px,calc(100svh - 90px));
+  display:flex;
+  align-items:center;
+  grid-template-columns:none;
+  padding-top:110px;
+  padding-bottom:110px;
+}
+#home .hero-copy{
+  width:100%;
+  max-width:790px;
+  padding-top:0;
+  transform:none;
+}
+@media(max-width:700px){
+  #home.hero{
+    min-height:calc(100svh - 72px);
+    padding-top:145px;
+    padding-bottom:90px;
+    gap:0;
+  }
+  #home .hero-copy{transform:none}
+}
