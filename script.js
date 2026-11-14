@@ -65,3 +65,80 @@ document.addEventListener("click", (event) => {
 
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
+
+
+// BLOOM client feedback — submissions are saved as pending until approved.
+const feedbackForm = document.getElementById("feedback-form");
+if (feedbackForm && window.supabase) {
+  const feedbackClient = window.supabase.createClient(
+    "https://zkxtlbvgurziniicpdyg.supabase.co",
+    "sb_publishable_Q3IBH3JE1e6fGoqFQNUoig_FLufny0b"
+  );
+  const ratingInput = document.getElementById("feedback-rating");
+  const ratingHint = document.getElementById("rating-hint");
+  const ratingButtons = [...feedbackForm.querySelectorAll(".rating-star")];
+  const feedbackStatus = document.getElementById("feedback-status");
+  const submitButton = feedbackForm.querySelector(".feedback-submit");
+  const feedbackList = document.getElementById("feedback-list");
+
+  function setFeedbackRating(value) {
+    ratingInput.value = value || "";
+    ratingButtons.forEach((button) => {
+      const selected = Number(button.dataset.rating) <= value;
+      button.classList.toggle("selected", selected);
+      button.setAttribute("aria-checked", String(Number(button.dataset.rating) === value));
+    });
+    ratingHint.textContent = value ? value + (value === 1 ? " star" : " stars") : "Select a rating";
+  }
+  ratingButtons.forEach((button) => button.addEventListener("click", () => setFeedbackRating(Number(button.dataset.rating))));
+
+  async function loadApprovedFeedback() {
+    const { data, error } = await feedbackClient.from("client_feedback")
+      .select("name, rating, feedback, created_at").eq("approved", true)
+      .order("created_at", { ascending: false }).limit(6);
+    if (error || !data || !data.length) {
+      feedbackList.innerHTML = '<p class="feedback-empty">No published feedback yet. Your words could be the first.</p>';
+      return;
+    }
+    feedbackList.replaceChildren(...data.map((item) => {
+      const card = document.createElement("article");
+      card.className = "feedback-item";
+      const stars = document.createElement("div");
+      stars.className = "feedback-item-stars";
+      stars.textContent = "★".repeat(item.rating) + "☆".repeat(5 - item.rating);
+      const message = document.createElement("p");
+      message.textContent = item.feedback;
+      const name = document.createElement("strong");
+      name.textContent = item.name;
+      const date = document.createElement("time");
+      date.dateTime = item.created_at;
+      date.textContent = new Date(item.created_at).toLocaleDateString(undefined, {year:"numeric",month:"short"});
+      card.append(stars, message, name, date);
+      return card;
+    }));
+  }
+
+  feedbackForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const data = new FormData(feedbackForm);
+    const rating = Number(ratingInput.value);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("feedback") || "").trim();
+    if (!rating) { feedbackStatus.textContent = "Please choose a star rating first."; return; }
+    if (name.length < 2 || message.length < 10) { feedbackStatus.textContent = "Please enter your name and at least 10 characters of feedback."; return; }
+    submitButton.disabled = true;
+    submitButton.textContent = "SUBMITTING...";
+    feedbackStatus.textContent = "Sending your feedback securely...";
+    const { error } = await feedbackClient.from("client_feedback").insert({name,email,rating,feedback:message,approved:false});
+    submitButton.disabled = false;
+    submitButton.innerHTML = 'SUBMIT FEEDBACK <span>↗</span>';
+    if (error) { feedbackStatus.textContent = "Sorry, your feedback could not be sent. Please try again."; return; }
+    feedbackForm.reset();
+    setFeedbackRating(0);
+    feedbackStatus.textContent = "Thank you! Your feedback was received and is awaiting review.";
+  });
+  loadApprovedFeedback();
+} else if (feedbackForm) {
+  document.getElementById("feedback-status").textContent = "Feedback form is temporarily unavailable. Please email us instead.";
+}
