@@ -700,3 +700,28 @@ button:not(.menu):not(.work-image-button):not(.gallery-image-button):not(.lightb
   background:#fff;color:#000;
 }
 
+/* Final monochrome interaction states — no blue on hover, tap, active or focus */
+:root{color-scheme:dark;accent-color:#ffffff}
+*{-webkit-tap-highlight-color:rgba(0,0,0,0)!important}
+a,a:hover,a:active,a:focus,
+button,button:hover,button:active,button:focus,
+input,input:hover,input:active,input:focus,
+textarea,textarea:hover,textarea:active,textarea:focus,
+select,select:hover,select:active,select:focus,
+[role="button"],[role="button"]:hover,[role="button"]:active,[role="button"]:focus{
+  -webkit-tap-highlight-color:rgba(0,0,0,0)!important;
+  accent-color:#ffffff;
+  outline-color:rgba(255,255,255,.7);
+}
+a:active,button:active,[role="button"]:active{
+  color:inherit;
+}
+:focus-visible{
+  outline:2px solid rgba(210,210,210,.75)!important;
+  outline-offset:3px;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:rgba(210,210,210,.75)!important;
+  box-shadow:0 0 0 3px rgba(190,190,190,.12)!important;
+}
+::selection{background:rgba(210,210,210,.28);color:#ffffff}
