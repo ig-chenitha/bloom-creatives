@@ -355,3 +355,8 @@ body{
 .process:before{
   background:none;
 }
+
+/* About section: remove the container-clipped glow that creates a vertical background edge. */
+.about-deck:before{
+  background:none;
+}
