@@ -1156,3 +1156,33 @@ a:focus,a:active,a:focus-visible,
   #home .hero-copy>p{text-align:center}
   #home .hero-actions{align-self:center;justify-content:center}
 }
+
+
+/* Final home hero alignment refinement */
+@media(min-width:701px){
+  /* Align the scroll cue with the centered service labels */
+  #home .hero-bottom-note{
+    bottom:108px;
+  }
+  #home .hero-meta{
+    align-self:center;
+    justify-content:center;
+    margin-top:76px;
+    width:100%;
+  }
+  /* Bring both CTA links back to the center at their original compact size */
+  #home .hero-actions{
+    align-self:center;
+    justify-content:center;
+    width:auto;
+    gap:27px;
+    margin-top:34px;
+  }
+  #home .hero-actions .primary-btn{
+    padding:16px 22px;
+    gap:22px;
+    font-size:11px;
+  }
+  #home .hero-actions .primary-btn span{font-size:16px}
+  #home .hero-actions .text-link{font-size:12px}
+}
