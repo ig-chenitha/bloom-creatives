@@ -1210,3 +1210,27 @@ a:focus,a:active,a:focus-visible,
     line-height:1.7;
   }
 }
+
+
+/* Refine home hero hierarchy: larger headline, smaller supporting copy */
+@media(min-width:701px){
+  #home .hero-copy h1{
+    font-size:clamp(94px,10.8vw,144px);
+    line-height:.94;
+  }
+  #home .hero-copy>p{
+    max-width:680px;
+    font-size:11px;
+    line-height:1.7;
+  }
+}
+@media(max-width:700px){
+  #home .hero-copy h1{
+    font-size:clamp(58px,13vw,84px);
+    line-height:.98;
+  }
+  #home .hero-copy>p{
+    font-size:10px;
+    line-height:1.65;
+  }
+}
