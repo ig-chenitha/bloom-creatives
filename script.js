@@ -87,7 +87,7 @@ if (feedbackForm && window.supabase) {
       button.setAttribute("aria-checked", String(rating === value));
       button.tabIndex = rating === value || (!value && index === 0) ? 0 : -1;
     });
-    ratingHint.textContent = value ? value + (value === 1 ? " star" : " stars") : "Select a rating";
+    ratingHint.textContent = value ? value + "/5 · " + value + (value === 1 ? " star" : " stars") : "Select a rating";
   }
   ratingButtons.forEach((button, index) => {
     button.addEventListener("click", () => setFeedbackRating(Number(button.dataset.rating)));
