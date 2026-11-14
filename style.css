@@ -442,7 +442,9 @@ body{
 .work-card-meta{padding:15px 4px 10px;color:#8fa8d8;font-size:7px;letter-spacing:.11em}
 .work-card-meta span:last-child{color:#76c8ff}
 .work-card-bottom{padding:9px 4px 3px;border-top:1px solid rgba(160,190,255,.14)}
-.work-card-bottom h3{margin:0;color:#f5f7ff;font-size:14px;letter-spacing:-.02em}
+.work-card-bottom h3{flex:1;min-width:0;margin:0;color:#f5f7ff;font-size:14px;letter-spacing:-.02em}
+.work-card-bottom .project-details-link{flex:0 0 auto;padding:5px 0 5px 6px;font-size:8px;line-height:1.4;text-align:right}
+@media(max-width:390px){.work-card-bottom{align-items:flex-start;flex-wrap:wrap}.work-card-bottom h3{flex-basis:100%}.work-card-bottom .project-details-link{margin-left:auto}}
 .work-card-bottom>span{color:#8ca6d9;font-size:9px}
 .work-lightbox{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:30px;background:rgba(1,4,16,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .work-lightbox.open{display:flex}
