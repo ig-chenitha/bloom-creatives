@@ -63,6 +63,22 @@ document.addEventListener("click", (event) => {
   window.setTimeout(() => ripple.remove(), 600);
 });
 
+// Scroll reveal: gently pop each public content section into view.
+(() => {
+  const sections = [...document.querySelectorAll("main section, body > section")]
+    .filter((section) => !section.classList.contains("bloom-impact"));
+  if (!sections.length || !("IntersectionObserver" in window)) return;
+  sections.forEach((section) => section.classList.add("bloom-reveal"));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-revealed");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+  sections.forEach((section) => observer.observe(section));
+})();
+
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 
