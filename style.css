@@ -589,3 +589,22 @@ img {
   -webkit-user-select: none;
   user-select: none;
 }
+
+
+/* Strict monochrome correction: grey is for text/details only, never page backgrounds */
+body,.site-header,.nav-shell,.navlinks,.hero,.hero-art,.intro,.work,.services,.contact,.gallery,.process,.feedback,.about,.section-wrap,main{
+  background-color:#000000;
+}
+.ambient-one,.ambient-two{background:#000000!important;opacity:0!important}
+.nav-shell,.work-card,.gallery-card,.gallery-page-card,.about-card,.about-panel,.process-card,.feedback-form,.feedback-public,.feedback-item,.contact-panel,.contact-info,.contact-form,.project-detail-image-wrap,.project-process-grid article,.project-software-section,.bloom-impact-stats article{
+  background:#000000!important;
+  background-image:none!important;
+}
+.work-card:before,.gallery-card:before,.gallery-page-card:before,.contact-glow,.hero-art:before,.gallery-hero:after{
+  background:none!important;
+}
+.navlinks{background:#000000!important}
+button,.primary-btn,.nav-cta,.feedback-submit,.contact-send,.bloom-about-button{
+  background:#ffffff!important;
+  color:#000000!important;
+}
