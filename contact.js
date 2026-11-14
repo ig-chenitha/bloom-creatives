@@ -16,7 +16,7 @@ if (contactForm) {
       name: String(formData.get("name") || "").trim(),
       email: String(formData.get("email") || "").trim(),
       service: String(formData.get("service") || "").trim(),
-      budget: String(formData.get("budget") || "").trim() || "Not specified",
+      budget: (() => { const amount = String(formData.get("budget_amount") || "").trim(); const currency = String(formData.get("budget_currency") || "LKR").trim(); return amount ? `${currency === "USD" ? "$" : "LKR"} ${amount}` : "Not specified"; })(),
       message: String(formData.get("message") || "").trim()
     };
 
