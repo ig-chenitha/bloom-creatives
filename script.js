@@ -82,6 +82,20 @@ document.addEventListener("click", (event) => {
   sections.forEach((section) => observer.observe(section));
 })();
 
+// Discourage casual saving and dragging of portfolio images.
+document.addEventListener("contextmenu", (event) => {
+  if (event.target instanceof HTMLImageElement) event.preventDefault();
+}, true);
+document.addEventListener("dragstart", (event) => {
+  if (event.target instanceof HTMLImageElement) event.preventDefault();
+}, true);
+document.addEventListener("keydown", (event) => {
+  const key = event.key.toLowerCase();
+  if ((event.ctrlKey || event.metaKey) && (key === "s" || key === "u")) {
+    event.preventDefault();
+  }
+}, true);
+
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 
