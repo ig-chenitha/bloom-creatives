@@ -725,3 +725,44 @@ input:focus,textarea:focus,select:focus{
   box-shadow:0 0 0 3px rgba(190,190,190,.12)!important;
 }
 ::selection{background:rgba(210,210,210,.28);color:#ffffff}
+
+
+/* Gallery project links — clear compact boxed buttons for every design card */
+.gallery-page .work-card-bottom{
+  align-items:center;
+  gap:12px;
+}
+.gallery-page .project-details-link{
+  display:inline-flex;
+  flex:0 0 auto;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:8px 12px;
+  border:1px solid rgba(255,255,255,.34);
+  border-radius:8px;
+  background:rgba(255,255,255,.055);
+  color:#ffffff!important;
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.08em;
+  line-height:1;
+  white-space:nowrap;
+  text-decoration:none;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+.gallery-page .project-details-link:hover,
+.gallery-page .project-details-link:focus-visible{
+  background:#ffffff!important;
+  border-color:#ffffff!important;
+  color:#000000!important;
+  transform:translateY(-2px);
+  outline:none;
+}
+@media(max-width:390px){
+  .gallery-page .work-card-bottom .project-details-link{
+    margin-left:auto;
+    min-height:32px;
+    padding:7px 10px;
+  }
+}
