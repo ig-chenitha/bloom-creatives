@@ -2,8 +2,8 @@ const contactForm = document.getElementById("contact-form");
 
 if (contactForm && window.supabase) {
   const contactClient = window.supabase.createClient(
-    "https://zkxtlbvgurziniicpdyg.supabase.co",
-    "sb_publishable_Q3IBH3JE1e6fGoqFQNUoig_FLufny0b"
+    "https://qenobhmetbarxepggocx.supabase.co",
+    "sb_publishable_U3jXC6vggzC_bqHJxmAoEA_riJcQh29"
   );
   const status = document.getElementById("contact-status");
   const submitButton = contactForm.querySelector(".contact-send");
