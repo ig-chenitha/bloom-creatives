@@ -20,7 +20,7 @@
       <a class="brand" href="#home" aria-label="BLOOM CREATIVES home"><img src="assets/bloom-logo.svg" alt="BLOOM CREATIVES"></a>
       <button class="menu" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span></button>
       <nav class="navlinks" id="primary-navigation" aria-label="Main navigation">
-        <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#process">Process</a>
+        <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#feedback">Feedback</a>
         <a href="#gallery">Gallery</a><a href="#services">Services</a>
       </nav>
       <a class="nav-cta" href="#contact">LET'S CONNECT <span>↗</span></a>
@@ -69,15 +69,27 @@
       <div class="about-deck-bottom"><span>PERSONAL VISION</span><i></i><span>CREATIVE EXPRESSION</span><i></i><span>BUILT WITH PURPOSE</span></div>
     </section>
 
-    <section class="process section-wrap" id="process">
-      <div class="section-index">02 <span>— HOW I WORK</span></div>
-      <div class="section-heading"><div><p class="eyebrow">FROM IDEA TO IMPACT</p><h2>A thoughtful<br><em>process.</em></h2></div><p class="body-copy">Every strong design starts with understanding. I turn ideas into purposeful visuals through a clear, considered creative process.</p></div>
-      <div class="process-grid">
-        <article class="process-card"><span class="process-number">01</span><div class="process-icon">✳</div><h3>Discover</h3><p>We start with your goals, audience and the story your brand needs to tell.</p><span class="process-tag">LISTEN · UNDERSTAND</span></article>
-        <article class="process-card"><span class="process-number">02</span><div class="process-icon">⌁</div><h3>Define</h3><p>Shape the direction with references, ideas and a clear visual approach.</p><span class="process-tag">RESEARCH · DIRECTION</span></article>
-        <article class="process-card"><span class="process-number">03</span><div class="process-icon">✧</div><h3>Design</h3><p>Bring the concept to life with thoughtful details and purposeful design.</p><span class="process-tag">CREATE · REFINE</span></article>
-        <article class="process-card"><span class="process-number">04</span><div class="process-icon">↗</div><h3>Deliver</h3><p>Prepare polished final visuals, ready to make your brand stand out.</p><span class="process-tag">FINALISE · SHARE</span></article>
+    <section class="feedback section-wrap" id="feedback">
+      <div class="section-index">02 <span>— YOUR WORDS MATTER</span></div>
+      <div class="section-heading"><div><p class="eyebrow">A SPACE FOR YOUR THOUGHTS</p><h2>Client <em>feedback.</em></h2></div><p class="body-copy">Your experience matters. Share your thoughts about working with BLOOM CREATIVES and help shape what comes next.</p></div>
+      <div class="feedback-layout">
+        <div class="feedback-intro"><span class="feedback-mark">“</span><h3>Good work is<br>made <em>together.</em></h3><p>Every project is a collaboration. If we have worked together, I would love to hear about your experience.</p><div class="feedback-note"><span class="feedback-note-dot"></span> FEEDBACK IS REVIEWED BEFORE IT APPEARS PUBLICLY</div></div>
+        <form class="feedback-form" id="feedback-form">
+          <div class="feedback-form-head"><span>SHARE YOUR EXPERIENCE</span><span>01 / 04</span></div>
+          <label class="feedback-label">YOUR RATING</label>
+          <div class="rating-picker" role="radiogroup" aria-label="Choose a rating">
+            <button type="button" class="rating-star" data-rating="1" aria-label="1 star" aria-checked="false">★</button><button type="button" class="rating-star" data-rating="2" aria-label="2 stars" aria-checked="false">★</button><button type="button" class="rating-star" data-rating="3" aria-label="3 stars" aria-checked="false">★</button><button type="button" class="rating-star" data-rating="4" aria-label="4 stars" aria-checked="false">★</button><button type="button" class="rating-star" data-rating="5" aria-label="5 stars" aria-checked="false">★</button><span class="rating-hint" id="rating-hint">Select a rating</span>
+          </div>
+          <input type="hidden" id="feedback-rating" name="rating" value="">
+          <div class="feedback-fields">
+            <label class="feedback-field"><span>YOUR NAME</span><input type="text" name="name" id="feedback-name" placeholder="Enter your name" minlength="2" maxlength="80" autocomplete="name" required></label>
+            <label class="feedback-field"><span>EMAIL ADDRESS</span><input type="email" name="email" id="feedback-email" placeholder="you@example.com" maxlength="254" autocomplete="email" required></label>
+          </div>
+          <label class="feedback-field feedback-message"><span>YOUR FEEDBACK</span><textarea name="feedback" id="feedback-message" placeholder="Tell me about your experience..." minlength="10" maxlength="1200" rows="4" required></textarea></label>
+          <div class="feedback-form-foot"><span id="feedback-status" role="status" aria-live="polite">Your feedback will be reviewed before publishing.</span><button class="feedback-submit" type="submit">SUBMIT FEEDBACK <span>↗</span></button></div>
+        </form>
       </div>
+      <div class="feedback-public" id="feedback-public" aria-live="polite"><div class="feedback-public-heading"><span>WORDS FROM CLIENTS</span><span>APPROVED FEEDBACK</span></div><div class="feedback-list" id="feedback-list"><p class="feedback-loading">Loading client feedback...</p></div></div>
     </section>
 
     <section class="gallery section-wrap" id="gallery">
@@ -108,6 +120,7 @@
     </section>
   </main>
   <footer class="section-wrap"><a class="footer-brand" href="#home" aria-label="BLOOM home"><img src="assets/bloom-logo.svg" alt="BLOOM"></a><span>© <span id="year"></span> BLOOM CREATIVES | INDEPENDENT CREATIVE DESIGNER</span><a href="#home">BACK TO TOP ↑</a></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>
