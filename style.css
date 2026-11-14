@@ -340,3 +340,18 @@ body .about-panel h3 em{
 .contact-send span{margin-left:9px}
 @media(max-width:760px){.contact-hero{padding-top:128px;padding-bottom:65px}.contact-page-heading{display:block;margin:38px 0 30px}.contact-page-heading h1{font-size:clamp(54px,12vw,76px)}.contact-page-intro{margin-top:22px}.contact-page-grid{grid-template-columns:1fr;gap:15px}.contact-info,.contact-form{padding:26px 22px;border-radius:23px}.contact-info h2{margin-top:32px}.contact-form-bottom{align-items:flex-start;flex-direction:column}.contact-send{width:100%}}
 @media(max-width:390px){.contact-page-heading h1{font-size:52px}.contact-info,.contact-form{padding:23px 18px}}
+
+/* Continuous page-wide background: keep ambient colour on the canvas, not clipped section edges. */
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 76% 48% at 12% 0%,rgba(7,59,255,.12),transparent 72%),
+    radial-gradient(ellipse 58% 46% at 100% 42%,rgba(0,105,220,.075),transparent 74%);
+  background-attachment:fixed;
+}
+
+/* These section glows were clipped to the content container, creating visible vertical seams. */
+.feedback:before,
+.process:before{
+  background:none;
+}
