@@ -71,8 +71,8 @@ if (year) year.textContent = new Date().getFullYear();
 const feedbackForm = document.getElementById("feedback-form");
 if (feedbackForm && window.supabase) {
   const feedbackClient = window.supabase.createClient(
-    "https://zkxtlbvgurziniicpdyg.supabase.co",
-    "sb_publishable_Q3IBH3JE1e6fGoqFQNUoig_FLufny0b"
+    "https://qenobhmetbarxepggocx.supabase.co",
+    "sb_publishable_U3jXC6vggzC_bqHJxmAoEA_riJcQh29"
   );
   const ratingInput = document.getElementById("feedback-rating");
   const ratingHint = document.getElementById("rating-hint");
