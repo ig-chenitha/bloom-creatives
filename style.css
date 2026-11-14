@@ -105,7 +105,7 @@ footer{min-height:90px;display:flex;align-items:center;justify-content:space-bet
 .about-panel-me{background:radial-gradient(ellipse at 70% 22%,rgba(0,173,255,.32),transparent 52%),linear-gradient(145deg,rgba(11,53,111,.72),rgba(4,12,35,.88))}
 .about-panel-bloom{background:radial-gradient(ellipse at 50% 30%,rgba(30,88,255,.34),transparent 50%),linear-gradient(145deg,rgba(16,31,83,.76),rgba(3,8,25,.9))}
 .about-panel-kicker,.about-panel-foot{position:relative;z-index:1;display:flex;justify-content:space-between;color:#a8c4ff;font-size:8px;letter-spacing:.15em}
-.about-monogram{position:absolute;right:30px;top:62px;font:italic 190px/1 Georgia,serif;color:rgba(255,255,255,.09);text-shadow:0 0 50px rgba(67,160,255,.3)}
+.about-monogram{position:absolute;right:30px;top:62px;font:600 190px/1 "Outfit",sans-serif;color:rgba(255,255,255,.09);text-shadow:0 0 50px rgba(67,160,255,.3)}
 .about-monogram span{color:#62baff}
 .about-panel-copy{position:relative;z-index:1;max-width:390px;margin-top:160px}
 .about-panel-copy .eyebrow{font-size:8px}
