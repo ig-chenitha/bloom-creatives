@@ -696,9 +696,7 @@ input,textarea,select{
   box-shadow:none!important;backdrop-filter:none!important;
 }
 .work-image-button img,.gallery-image-button img{display:block}
-button:not(.menu):not(.work-image-button):not(.gallery-image-button):not(.lightbox-trigger){
-  background:#fff;color:#000;
-}
+/* Do not force every button to white: each control owns its intended glass/selected state. */
 
 /* Final monochrome interaction states — no blue on hover, tap, active or focus */
 :root{color-scheme:dark;accent-color:#ffffff}
@@ -852,4 +850,72 @@ a:focus,a:active,a:focus-visible,
   min-width:110px;
   color:#eeeeee!important;
   font-variant-numeric:tabular-nums;
+}
+
+/* BLOOM unified liquid-glass surfaces — shared finish across every page */
+:root{
+  --bloom-glass-bg:rgba(255,255,255,.055);
+  --bloom-glass-bg-strong:rgba(255,255,255,.085);
+  --bloom-glass-edge:rgba(255,255,255,.19);
+  --bloom-glass-shine:rgba(255,255,255,.14);
+}
+:is(.service-list article,.service-card,.service-item,.designer-skills article,
+    .about-photo-card,.designer-photo,.work-empty-state,.feedback-item,
+    .contact-method-icon,.process-icon,.work-lightbox-close,
+    .project-detail-image-wrap,.project-process-grid article,
+    .project-software-section,.bloom-impact-stats article,.stat-card){
+  border:1px solid var(--bloom-glass-edge)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025) 58%,rgba(255,255,255,.045))!important;
+  -webkit-backdrop-filter:blur(22px) saturate(150%)!important;
+  backdrop-filter:blur(22px) saturate(150%)!important;
+  box-shadow:inset 0 1px 0 var(--bloom-glass-shine),0 14px 38px rgba(0,0,0,.28)!important;
+}
+:is(.service-list article,.service-card,.service-item,.designer-skills article,
+    .about-photo-card,.designer-photo,.feedback-item,.project-detail-image-wrap,
+    .project-process-grid article,.project-software-section,.bloom-impact-stats article,.stat-card){
+  transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease;
+}
+:is(.service-list article,.service-card,.service-item,.designer-skills article,
+    .about-photo-card,.designer-photo,.feedback-item,.project-process-grid article,
+    .project-software-section,.bloom-impact-stats article,.stat-card):hover{
+  border-color:rgba(255,255,255,.3)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.17),0 18px 44px rgba(0,0,0,.34)!important;
+}
+.contact-method-icon,.process-icon{
+  color:#eeeeee!important;
+}
+.work-lightbox{
+  background:rgba(0,0,0,.72)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(135%)!important;
+  backdrop-filter:blur(28px) saturate(135%)!important;
+}
+.work-lightbox-close{
+  color:#ffffff!important;
+  border-radius:50%!important;
+}
+.site-header .navlinks{
+  border-radius:18px;
+}
+@media(max-width:700px){
+  .site-header .navlinks{
+    background:rgba(18,18,18,.68)!important;
+    border:1px solid rgba(255,255,255,.2)!important;
+    -webkit-backdrop-filter:blur(32px) saturate(165%)!important;
+    backdrop-filter:blur(32px) saturate(165%)!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 20px 50px rgba(0,0,0,.48)!important;
+  }
+  .site-header .menu{
+    background:rgba(255,255,255,.075)!important;
+    border:1px solid rgba(255,255,255,.23)!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 8px 22px rgba(0,0,0,.25)!important;
+  }
+}
+/* Preserve the requested white CTA and selected gallery filter states. */
+.site-header .nav-cta,.feedback-submit,.contact-send,.bloom-about-button{
+  background:rgba(255,255,255,.92)!important;
+  color:#000000!important;
+  border:1px solid rgba(255,255,255,.82)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(160%)!important;
+  backdrop-filter:blur(18px) saturate(160%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 8px 28px rgba(255,255,255,.09)!important;
 }
