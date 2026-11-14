@@ -66,7 +66,10 @@ document.addEventListener("click", (event) => {
 // Scroll reveal: gently pop each public content section into view.
 (() => {
   const sections = [...document.querySelectorAll("main section, body > section")]
-    .filter((section) => !section.classList.contains("bloom-impact"));
+    .filter((section) =>
+      !section.classList.contains("bloom-impact") &&
+      !section.querySelector(".work-lightbox")
+    );
   if (!sections.length || !("IntersectionObserver" in window)) return;
   sections.forEach((section) => section.classList.add("bloom-reveal"));
   const observer = new IntersectionObserver((entries) => {
