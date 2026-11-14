@@ -81,14 +81,28 @@ if (feedbackForm && window.supabase) {
 
   function setFeedbackRating(value) {
     ratingInput.value = value || "";
-    ratingButtons.forEach((button) => {
-      const selected = Number(button.dataset.rating) <= value;
-      button.classList.toggle("selected", selected);
-      button.setAttribute("aria-checked", String(Number(button.dataset.rating) === value));
+    ratingButtons.forEach((button, index) => {
+      const rating = Number(button.dataset.rating);
+      button.classList.toggle("selected", rating <= value);
+      button.setAttribute("aria-checked", String(rating === value));
+      button.tabIndex = rating === value || (!value && index === 0) ? 0 : -1;
     });
     ratingHint.textContent = value ? value + (value === 1 ? " star" : " stars") : "Select a rating";
   }
-  ratingButtons.forEach((button) => button.addEventListener("click", () => setFeedbackRating(Number(button.dataset.rating))));
+  ratingButtons.forEach((button, index) => {
+    button.addEventListener("click", () => setFeedbackRating(Number(button.dataset.rating)));
+    button.addEventListener("keydown", (event) => {
+      let next = null;
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") next = (index + 1) % ratingButtons.length;
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") next = (index - 1 + ratingButtons.length) % ratingButtons.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = ratingButtons.length - 1;
+      if (next === null) return;
+      event.preventDefault();
+      ratingButtons[next].focus();
+      setFeedbackRating(next + 1);
+    });
+  });
 
   async function loadApprovedFeedback() {
     const { data, error } = await feedbackClient.from("client_feedback")
@@ -128,13 +142,19 @@ if (feedbackForm && window.supabase) {
     submitButton.disabled = true;
     submitButton.textContent = "SUBMITTING...";
     feedbackStatus.textContent = "Sending your feedback securely...";
-    const { error } = await feedbackClient.from("client_feedback").insert({name,email,rating,feedback:message,approved:false});
-    submitButton.disabled = false;
-    submitButton.innerHTML = 'SUBMIT FEEDBACK <span>↗</span>';
-    if (error) { feedbackStatus.textContent = "Sorry, your feedback could not be sent. Please try again."; return; }
-    feedbackForm.reset();
-    setFeedbackRating(0);
-    feedbackStatus.textContent = "Thank you! Your feedback was received and is awaiting review.";
+    try {
+      const { error } = await feedbackClient.from("client_feedback").insert({name,email,rating,feedback:message,approved:false});
+      if (error) throw error;
+      feedbackForm.reset();
+      setFeedbackRating(0);
+      feedbackStatus.textContent = "Thank you! Your feedback was received and is awaiting review.";
+    } catch (error) {
+      console.error("BLOOM feedback submission:", error);
+      feedbackStatus.textContent = "Sorry, your feedback could not be sent. Please try again.";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = 'SUBMIT FEEDBACK <span>↗</span>';
+    }
   });
   loadApprovedFeedback();
 } else if (feedbackForm) {
