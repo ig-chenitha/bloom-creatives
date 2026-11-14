@@ -1036,3 +1036,69 @@ a:focus,a:active,a:focus-visible,
 @media(max-width:700px){
   #home .hero-copy h1{ text-shadow:0 2px 0 rgba(255,255,255,.16),0 8px 22px rgba(0,0,0,.8); }
 }
+
+
+/* Home hero: widen and enlarge the three highlighted content groups */
+#home .hero-copy{
+  width:min(100%,1120px);
+  max-width:1120px;
+}
+#home .hero-copy .eyebrow{
+  width:100%;
+  justify-content:center;
+  font-size:11px;
+  letter-spacing:.22em;
+  gap:13px;
+}
+#home .hero-copy .eyebrow-plus{
+  width:28px;
+  height:28px;
+  font-size:16px;
+}
+#home .hero-copy h1{
+  width:100%;
+  max-width:1100px;
+  font-size:clamp(68px,8.2vw,108px);
+  line-height:.99;
+  margin:32px auto 30px;
+}
+#home .hero-copy>p{
+  width:min(100%,850px);
+  max-width:850px;
+  font-size:17px;
+  line-height:1.9;
+}
+#home .hero-actions{
+  width:100%;
+  justify-content:center;
+  gap:34px;
+  margin-top:42px;
+}
+#home .hero-actions .primary-btn{
+  padding:19px 28px;
+  gap:26px;
+  font-size:12px;
+}
+#home .hero-actions .text-link{font-size:14px}
+#home .hero-meta{
+  width:100%;
+  justify-content:center;
+  margin-top:82px;
+  font-size:9px;
+}
+@media(max-width:900px){
+  #home .hero-copy{width:100%;max-width:100%}
+  #home .hero-copy h1{font-size:clamp(62px,9vw,88px)}
+  #home .hero-copy>p{max-width:760px}
+}
+@media(max-width:700px){
+  #home .hero-copy{width:100%;padding-inline:2px}
+  #home .hero-copy .eyebrow{font-size:9px;letter-spacing:.14em;gap:9px}
+  #home .hero-copy .eyebrow-plus{width:25px;height:25px}
+  #home .hero-copy h1{font-size:clamp(48px,11.5vw,72px);line-height:1.02;margin:27px auto 22px}
+  #home .hero-copy>p{width:100%;font-size:14px;line-height:1.75}
+  #home .hero-actions{width:100%;gap:18px;margin-top:30px}
+  #home .hero-actions .primary-btn{padding:16px 21px;font-size:10px}
+  #home .hero-actions .text-link{font-size:11px}
+  #home .hero-meta{margin-top:48px;font-size:7px;gap:9px}
+}
