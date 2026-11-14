@@ -34,6 +34,7 @@
 <article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/The%20Weeknd%20Design%2003.png" data-category="music" aria-label="View The Weeknd design full size"><img src="assets/gallery/The%20Weeknd%20Design%2003.png" alt="The Weeknd design" loading="lazy"></button><div class="work-card-meta"><span>08 / MUSIC POSTER</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>The Weeknd</h3><span>08</span></div></article>
 <article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/Ticket%2080%25%20Poster%2013.png" data-category="event" aria-label="View Ticket 80% design full size"><img src="assets/gallery/Ticket%2080%25%20Poster%2013.png" alt="Ticket 80% design" loading="lazy"></button><div class="work-card-meta"><span>09 / PROMOTIONAL DESIGN</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>Ticket 80%</h3><span>09</span></div></article>
 </div>
+<div class="work-empty-state" hidden><span class="work-empty-orb">✳</span><h3>Coming Soon</h3><p>New designs for this category are on the way.</p></div>
 <p class="gallery-disclaimer">A selection of original visual designs by BLOOM CREATIVES.</p>
 <div class="work-lightbox" id="work-lightbox" aria-hidden="true"><button class="work-lightbox-close" type="button" aria-label="Close preview">×</button><img src="" alt="Selected work preview"></div></section>
 <section class="gallery-end section-wrap"><p class="eyebrow">HAVE A PROJECT IN MIND?</p><h2>Let's make something<br><em>meaningful.</em></h2><a class="primary-btn" href="contact.html">START A PROJECT <span>↗</span></a></section>
@@ -48,6 +49,9 @@
   const category=filter.dataset.filter;
   document.querySelectorAll(".work-filter").forEach(item=>{const active=item===filter;item.classList.toggle("active",active);item.setAttribute("aria-pressed",String(active));});
   document.querySelectorAll(".work-card").forEach(card=>{card.hidden=category!=="all"&&card.querySelector(".work-image-button").dataset.category!==category;});
+  const hasVisible=[...document.querySelectorAll(".work-card")].some(card=>!card.hidden);
+  const empty=document.querySelector(".work-empty-state");
+  if(empty)empty.hidden=hasVisible;
  }));
  box.addEventListener("click",event=>{if(event.target===box||event.target.closest(".work-lightbox-close"))close();});
  document.addEventListener("keydown",event=>{if(event.key==="Escape")close();});
