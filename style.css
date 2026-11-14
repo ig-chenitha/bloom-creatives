@@ -196,3 +196,45 @@ body .about-panel h3 em{
 @media(max-width:900px){.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-card{min-height:320px}}
 @media(max-width:700px){.process,.gallery{padding-top:72px;padding-bottom:76px}.process-grid{grid-template-columns:1fr 1fr;gap:11px;margin-top:28px}.process-card{min-height:250px;padding:18px 15px;border-radius:20px}.process-icon{width:42px;height:42px;margin:24px 0 20px}.process-card h3{font-size:18px}.process-card p{font-size:10px}.process-tag{font-size:6px;letter-spacing:.09em}.gallery-grid{grid-template-columns:1fr;gap:13px;margin-top:28px}.gallery-card{min-height:300px;padding:19px;border-radius:21px}.gallery-art{font-size:clamp(58px,15vw,78px)}.gallery-card-top{font-size:7px}.gallery-card-bottom strong{font-size:12px}}
 @media(max-width:390px){.process-grid{grid-template-columns:1fr}.process-card{min-height:220px}.process-icon{margin:18px 0 16px}.gallery-card{min-height:270px}}
+
+
+/* BLOOM Feedback section */
+.feedback{position:relative;padding-top:86px;padding-bottom:92px;border-top:1px solid var(--line);overflow:hidden}
+.feedback:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 12% 38%,rgba(22,78,225,.13),transparent 48%),radial-gradient(ellipse at 88% 75%,rgba(0,177,255,.07),transparent 42%);pointer-events:none}
+.feedback .section-index,.feedback .section-heading{position:relative}
+.feedback-layout{position:relative;display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,68px);align-items:stretch;margin-top:38px}
+.feedback-intro{position:relative;padding:34px 12px 30px 0}
+.feedback-mark{display:block;color:#77baff;font-family:"Playfair Display",serif;font-size:90px;line-height:.7}
+.feedback-intro h3{margin:28px 0 18px;color:#f5f7ff;font-size:clamp(34px,4vw,52px);line-height:1;letter-spacing:-.06em}
+.feedback-intro h3 em{font-family:"Playfair Display",serif!important;font-style:italic!important;font-weight:500!important;color:#8cbcff}
+.feedback-intro>p{max-width:340px;color:#aebbdc;font-size:13px;line-height:1.9}
+.feedback-note{display:flex;align-items:center;gap:9px;margin-top:38px;color:#7f9bcf;font-size:8px;letter-spacing:.12em;line-height:1.8}
+.feedback-note-dot{width:7px;height:7px;flex:none;border-radius:50%;background:#65b5ff;box-shadow:0 0 12px #368bff}
+.feedback-form{padding:27px;border:1px solid rgba(143,177,255,.25);border-radius:25px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(18,46,112,.2) 48%,rgba(3,8,25,.76));backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:inset 0 1px 0 rgba(255,255,255,.11),0 18px 50px rgba(0,0,0,.22)}
+.feedback-form-head,.feedback-public-heading{display:flex;justify-content:space-between;gap:12px;padding-bottom:17px;border-bottom:1px solid rgba(160,190,255,.15);color:#91addf;font-size:8px;letter-spacing:.14em}
+.feedback-label,.feedback-field>span{display:block;margin:20px 0 10px;color:#c1d1f2;font-size:9px;letter-spacing:.1em}
+.rating-picker{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.rating-star{width:34px;height:34px;border:1px solid rgba(143,177,255,.22);border-radius:10px;background:rgba(9,23,65,.55);color:#65799f;font-size:18px;cursor:pointer;transition:all .2s}
+.rating-star:hover,.rating-star.selected{color:#9bcaff;border-color:rgba(96,170,255,.65);background:rgba(26,79,180,.3);box-shadow:0 0 18px rgba(33,113,255,.18)}
+.rating-hint{margin-left:7px;color:#8da4d0;font-size:10px}
+.feedback-fields{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.feedback-field{display:block;min-width:0}
+.feedback-field input,.feedback-field textarea{display:block;width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(143,177,255,.2);border-radius:13px;outline:none;background:rgba(3,9,28,.55);color:#f4f7ff;font:600 12px "Outfit",sans-serif;transition:border-color .2s,box-shadow .2s}
+.feedback-field input::placeholder,.feedback-field textarea::placeholder{color:#65799f}
+.feedback-field input:focus,.feedback-field textarea:focus{border-color:rgba(91,176,255,.7);box-shadow:0 0 0 3px rgba(35,112,255,.12)}
+.feedback-field textarea{resize:vertical;min-height:108px;line-height:1.7}
+.feedback-form-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:18px}
+#feedback-status{max-width:58%;color:#8da4d0;font-size:9px;line-height:1.6}
+.feedback-submit{display:inline-flex;align-items:center;gap:15px;padding:13px 17px;border:1px solid rgba(126,179,255,.42);border-radius:999px;background:linear-gradient(110deg,rgba(17,53,190,.45),rgba(27,35,110,.36));color:#f5f7ff;font:600 9px "Outfit",sans-serif;letter-spacing:.07em;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);transition:transform .2s,border-color .2s,box-shadow .2s}
+.feedback-submit:hover{transform:translateY(-2px);border-color:rgba(91,174,255,.8);box-shadow:0 0 25px rgba(23,77,255,.2)}
+.feedback-submit:disabled{opacity:.55;cursor:wait;transform:none}
+.feedback-public{position:relative;margin-top:46px;padding:25px;border:1px solid rgba(143,177,255,.18);border-radius:22px;background:rgba(5,13,37,.35);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.feedback-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:20px}
+.feedback-item{padding:18px;border:1px solid rgba(143,177,255,.16);border-radius:17px;background:rgba(255,255,255,.035)}
+.feedback-item-stars{color:#91c4ff;letter-spacing:.12em;font-size:12px}
+.feedback-item p{margin:10px 0 14px;color:#c0cce5;font-size:11px;line-height:1.8}
+.feedback-item strong{color:#f5f7ff;font-size:10px}
+.feedback-item time{display:block;margin-top:4px;color:#7189b7;font-size:8px}
+.feedback-loading,.feedback-empty{color:#8197c2;font-size:11px}
+@media(max-width:760px){.feedback{padding-top:72px;padding-bottom:76px}.feedback-layout{grid-template-columns:1fr;gap:20px;margin-top:28px}.feedback-intro{padding:10px 0 4px}.feedback-intro h3{margin:20px 0 12px}.feedback-note{margin-top:22px}.feedback-form{padding:21px;border-radius:21px}.feedback-public{padding:19px}.feedback-list{grid-template-columns:1fr}}
+@media(max-width:480px){.feedback-fields{grid-template-columns:1fr;gap:0}.feedback-form-foot{align-items:flex-start;flex-direction:column}.feedback-submit{align-self:flex-start}#feedback-status{max-width:100%}.feedback-public-heading{font-size:7px}}
