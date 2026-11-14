@@ -1007,3 +1007,32 @@ a:focus,a:active,a:focus-visible,
   #home .hero-actions{justify-content:center}
   #home .hero-meta{justify-content:center}
 }
+
+
+/* Home hero typography depth: subtle layered shadows, preserving the monochrome look */
+#home .hero-copy h1{
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.22),
+    0 4px 10px rgba(255,255,255,.10),
+    0 12px 28px rgba(0,0,0,.72);
+}
+#home .hero-copy h1 em{
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.18),
+    0 5px 14px rgba(220,220,220,.16),
+    0 14px 30px rgba(0,0,0,.8);
+}
+#home .hero-copy .eyebrow,
+#home .hero-copy>p,
+#home .hero-copy .hero-meta{
+  text-shadow:0 2px 7px rgba(255,255,255,.12),0 5px 12px rgba(0,0,0,.85);
+}
+#home .hero-copy .primary-btn{
+  box-shadow:0 7px 0 rgba(110,110,110,.28),0 14px 28px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.7);
+}
+#home .hero-copy .text-link{
+  text-shadow:0 2px 8px rgba(255,255,255,.18),0 5px 14px rgba(0,0,0,.8);
+}
+@media(max-width:700px){
+  #home .hero-copy h1{ text-shadow:0 2px 0 rgba(255,255,255,.16),0 8px 22px rgba(0,0,0,.8); }
+}
