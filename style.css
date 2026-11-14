@@ -644,3 +644,42 @@ input,textarea,select{
   -webkit-backdrop-filter:blur(16px);
   backdrop-filter:blur(16px);
 }
+
+
+/* Repair control styling after global liquid-glass pass */
+.site-header{background:transparent!important}
+.site-header .nav-shell{
+  background:rgba(20,20,20,.72)!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+  -webkit-backdrop-filter:blur(30px) saturate(150%)!important;
+  backdrop-filter:blur(30px) saturate(150%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 12px 36px rgba(0,0,0,.45)!important;
+}
+.site-header .navlinks{
+  background:rgba(18,18,18,.76)!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(150%)!important;
+  backdrop-filter:blur(28px) saturate(150%)!important;
+}
+.site-header .navlinks a{color:#d5d5d5!important}
+.site-header .navlinks a:hover,.site-header .navlinks a.active{color:#fff!important}
+.site-header .nav-cta{
+  background:#fff!important;color:#000!important;
+  border:1px solid rgba(255,255,255,.7)!important;
+}
+.site-header .menu{
+  display:none;background:rgba(255,255,255,.07)!important;
+  color:#fff!important;border:1px solid rgba(255,255,255,.22)!important;
+  box-shadow:none!important;backdrop-filter:blur(16px)!important;
+}
+.site-header .menu span{background:#fff!important}
+@media(max-width:700px){.site-header .menu{display:flex}.site-header .navlinks{background:rgba(12,12,12,.82)!important}}
+/* Image zoom controls are not call-to-action buttons */
+.work-image-button,.gallery-image-button,.lightbox-trigger{
+  background:transparent!important;color:inherit!important;border:0!important;
+  box-shadow:none!important;backdrop-filter:none!important;
+}
+.work-image-button img,.gallery-image-button img{display:block}
+button:not(.menu):not(.work-image-button):not(.gallery-image-button):not(.lightbox-trigger){
+  background:#fff;color:#000;
+}
