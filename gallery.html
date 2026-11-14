@@ -35,9 +35,9 @@
 <button class="work-filter" type="button" data-filter="advertising" aria-pressed="false">Promotion Posters <span>01</span></button>
 </div>
 <div class="work-gallery-grid">
-<article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/Billie%20Eilish%2004.png" data-category="visual" aria-label="View Billie Eilish design full size"><img src="assets/gallery/Billie%20Eilish%2004.webp" alt="Billie Eilish design" loading="lazy" decoding="async"></button><div class="work-card-meta"><span>01 / MUSIC POSTER</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>Billie Eilish Music-Inspired Design</h3><a class="project-details-link" href="project.html?project=billie-eilish">VIEW PROJECT ↗</a></div></article>
-<article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/Centrak%20Cee%2001.png" data-category="visual" aria-label="View Central Cee design full size"><img src="assets/gallery/Centrak%20Cee%2001.webp" alt="Central Cee design" loading="lazy" decoding="async"></button><div class="work-card-meta"><span>02 / MUSIC POSTER</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>Central Cee Music-Inspired Design</h3><a class="project-details-link" href="project.html?project=central-cee">VIEW PROJECT ↗</a></div></article>
-<article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/Coffee%20Poster.png" data-category="advertising" aria-label="View Oreo Shake design full size"><img src="assets/gallery/Coffee%20Poster.webp" alt="Oreo Shake design" loading="lazy" decoding="async"></button><div class="work-card-meta"><span>03 / ADVERTISING POSTER</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>Oreo Shake Promotion</h3><a class="project-details-link" href="project.html?project=oreo-shake">VIEW PROJECT ↗</a></div></article>
+<article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/Billie%20Eilish%2004.png" data-category="visual" aria-label="View Billie Eilish design full size"><img src="assets/gallery/Billie%20Eilish%2004.webp" alt="Billie Eilish design" loading="eager" fetchpriority="high" decoding="async"></button><div class="work-card-meta"><span>01 / MUSIC POSTER</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>Billie Eilish Music-Inspired Design</h3><a class="project-details-link" href="project.html?project=billie-eilish">VIEW PROJECT ↗</a></div></article>
+<article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/Centrak%20Cee%2001.png" data-category="visual" aria-label="View Central Cee design full size"><img src="assets/gallery/Centrak%20Cee%2001.webp" alt="Central Cee design" loading="eager" fetchpriority="high" decoding="async"></button><div class="work-card-meta"><span>02 / MUSIC POSTER</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>Central Cee Music-Inspired Design</h3><a class="project-details-link" href="project.html?project=central-cee">VIEW PROJECT ↗</a></div></article>
+<article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/Coffee%20Poster.png" data-category="advertising" aria-label="View Oreo Shake design full size"><img src="assets/gallery/Coffee%20Poster.webp" alt="Oreo Shake design" loading="eager" fetchpriority="high" decoding="async"></button><div class="work-card-meta"><span>03 / ADVERTISING POSTER</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>Oreo Shake Promotion</h3><a class="project-details-link" href="project.html?project=oreo-shake">VIEW PROJECT ↗</a></div></article>
 <article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/The%20Weeknd%20Design%2003.png" data-category="visual" aria-label="View The Weeknd design full size"><img src="assets/gallery/The%20Weeknd%20Design%2003.webp" alt="The Weeknd design" loading="lazy" decoding="async"></button><div class="work-card-meta"><span>04 / MUSIC POSTER</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>The Weeknd Music-Inspired Design</h3><a class="project-details-link" href="project.html?project=the-weeknd">VIEW PROJECT ↗</a></div></article>
 <article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/Magican%20Poster%2007.png" data-category="event" aria-label="View Magic Show design full size"><img src="assets/gallery/Magican%20Poster%2007.webp" alt="Magic Show design" loading="lazy" decoding="async"></button><div class="work-card-meta"><span>05 / EVENT PROMOTION</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>Magic Show</h3><a class="project-details-link" href="project.html?project=magic-show">VIEW PROJECT ↗</a></div></article>
 <article class="work-card"><button class="work-image-button" type="button" data-full="assets/gallery/Main%20Poster%2004.png" data-category="event" aria-label="View Main Poster design full size"><img src="assets/gallery/Main%20Poster%2004.webp" alt="Main Poster design" loading="lazy" decoding="async"></button><div class="work-card-meta"><span>06 / EVENT PROMOTION</span><span>SELECTED WORK</span></div><div class="work-card-bottom"><h3>Halloween Party</h3><a class="project-details-link" href="project.html?project=halloween-party">VIEW PROJECT ↗</a></div></article>
@@ -54,6 +54,22 @@
 
 <footer class="section-wrap"><a class="footer-brand" href="index.html#home" aria-label="BLOOM home"><img src="assets/bloom-logo.svg" alt="BLOOM" loading="lazy" decoding="async"></a><span>© <span id="year"></span> BLOOM CREATIVES | INDEPENDENT CREATIVE DESIGNER</span><a href="index.html#home">BACK TO HOME ↑</a></footer><script>
 (() => {
+ // Start loading gallery posters before they enter the phone viewport.
+ const galleryImages=[...document.querySelectorAll(".work-image-button img")];
+ if("IntersectionObserver" in window){
+  const imageLoader=new IntersectionObserver((entries,observer)=>{
+   entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const img=entry.target;
+    img.loading="eager";
+    if(img.decode) img.decode().catch(()=>{});
+    observer.unobserve(img);
+   });
+  },{rootMargin:"1400px 0px"});
+  galleryImages.forEach(img=>imageLoader.observe(img));
+ }else{
+  galleryImages.forEach(img=>img.loading="eager");
+ }
  const box=document.getElementById("work-lightbox"), preview=box&&box.querySelector("img");
  if(!box||!preview)return;
  const close=()=>{box.classList.remove("open");box.setAttribute("aria-hidden","true");preview.src="";document.body.classList.remove("work-lightbox-open");};
