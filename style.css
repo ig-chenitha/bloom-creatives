@@ -289,3 +289,13 @@ body .about-panel h3 em{
 .gallery-end h2{margin:12px 0 25px;color:#f5f7ff;font-size:clamp(38px,6vw,68px);line-height:.98;letter-spacing:-.07em}
 @media(max-width:700px){.gallery-hero{min-height:390px;padding-top:75px}.gallery-hero .eyebrow{margin-top:38px}.gallery-hero h1{font-size:clamp(62px,14vw,88px)}.gallery-hero-foot{margin-top:35px;font-size:7px}.gallery-collection{padding-top:32px;padding-bottom:55px}.gallery-page-grid{grid-template-columns:1fr;gap:15px}.gallery-page-card{min-height:360px;padding:20px;border-radius:23px}.gpc-art{font-size:clamp(72px,17vw,100px)}.gallery-collection-head>span{font-size:7px}}
 @media(max-width:390px){.gallery-page-card{min-height:310px}.gpc-meta{font-size:7px}}
+
+/* Consistent breathing room below the fixed glass navbar on every standalone page */
+.feedback.section-wrap{padding-top:140px}
+.gallery-hero.section-wrap{padding-top:140px}
+@media(max-width:760px){
+  .feedback.section-wrap{padding-top:128px}
+}
+@media(max-width:700px){
+  .gallery-hero.section-wrap{padding-top:128px}
+}
