@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030617">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin Dashboard — BLOOM CREATIVES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="admin-shell">
+    <a class="admin-brand" href="index.html"><img src="assets/bloom-logo.svg" alt="BLOOM CREATIVES"><span>PRIVATE AREA</span></a>
+
+    <section class="admin-login" id="admin-login">
+      <p class="admin-kicker">BLOOM CREATIVES / SECURE ACCESS</p>
+      <h1>Welcome <em>back.</em></h1>
+      <p class="admin-muted">Sign in with your authorised administrator account to manage client feedback.</p>
+      <form id="admin-login-form">
+        <label class="admin-field"><span>ADMIN EMAIL</span><input type="email" id="admin-email" value="chenithakodithuwakku444@gmail.com" autocomplete="username" required></label>
+        <label class="admin-field"><span>PASSWORD</span><input type="password" id="admin-password" placeholder="Enter your password" autocomplete="current-password" required></label>
+        <p class="admin-message" id="login-message" role="status" aria-live="polite"></p>
+        <button class="admin-primary" id="login-button" type="submit">SIGN IN <span>↗</span></button>
+      </form>
+      <a class="admin-back" href="index.html">← Back to website</a>
+    </section>
+
+    <section class="admin-dashboard" id="admin-dashboard" hidden>
+      <header class="admin-topbar">
+        <div><p class="admin-kicker">BLOOM CREATIVES / CONTROL CENTRE</p><h1>Feedback <em>dashboard.</em></h1><p class="admin-muted">Review and manage what clients share about their experience.</p></div>
+        <button class="admin-logout" id="admin-logout" type="button">LOG OUT ↗</button>
+      </header>
+      <div class="admin-stats">
+        <article class="admin-stat"><span>TOTAL FEEDBACK</span><strong id="stat-total">—</strong></article>
+        <article class="admin-stat"><span>AWAITING REVIEW</span><strong id="stat-pending">—</strong></article>
+        <article class="admin-stat"><span>APPROVED</span><strong id="stat-approved">—</strong></article>
+      </div>
+      <div class="admin-list-head">
+        <div><p class="admin-kicker">CLIENT VOICES</p><h2>Manage <em>feedback.</em></h2></div>
+        <div class="admin-tabs" role="group" aria-label="Filter feedback">
+          <button type="button" class="admin-tab active" data-filter="pending">PENDING</button>
+          <button type="button" class="admin-tab" data-filter="approved">APPROVED</button>
+          <button type="button" class="admin-tab" data-filter="all">ALL</button>
+        </div>
+      </div>
+      <p class="admin-message" id="dashboard-message" role="status" aria-live="polite"></p>
+      <div class="admin-feedback-list" id="admin-feedback-list"><p class="admin-muted">Loading feedback…</p></div>
+      <footer class="admin-footer"><span>PRIVATE ADMIN AREA · BLOOM CREATIVES</span><a href="feedback.html">VIEW PUBLIC FEEDBACK ↗</a></footer>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+  <script src="admin.js" defer></script>
+</body>
+</html>
