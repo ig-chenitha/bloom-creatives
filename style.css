@@ -1262,3 +1262,23 @@ a:focus,a:active,a:focus-visible,
     padding-bottom:0;
   }
 }
+
+
+/* Keep the mobile Home section full-height; only reposition its contents */
+@media(max-width:700px){
+  #home.hero{
+    min-height:calc(100svh - 72px);
+    height:auto;
+    padding-top:125px;
+    padding-bottom:90px;
+    position:relative;
+  }
+  #home .hero-actions{margin-top:22px}
+  #home .hero-meta{margin-top:30px}
+  #home .hero-bottom-note{
+    position:absolute;
+    left:0;
+    bottom:24px;
+    margin-top:0;
+  }
+}
