@@ -1234,3 +1234,31 @@ a:focus,a:active,a:focus-visible,
     line-height:1.65;
   }
 }
+
+
+/* Mobile home hero: tighten vertical spacing and remove excess empty height */
+@media(max-width:700px){
+  #home.hero{
+    min-height:0;
+    height:auto;
+    padding-top:125px;
+    padding-bottom:48px;
+    gap:0;
+    align-items:flex-start;
+  }
+  #home .hero-copy{transform:none}
+  #home .hero-copy h1{margin-bottom:16px}
+  #home .hero-copy>p{margin-bottom:0}
+  #home .hero-actions{
+    margin-top:22px;
+    gap:18px;
+  }
+  #home .hero-meta{
+    margin-top:30px;
+  }
+  #home .hero-bottom-note{
+    position:static;
+    margin-top:52px;
+    padding-bottom:0;
+  }
+}
