@@ -47,7 +47,7 @@
  document.querySelectorAll(".work-filter").forEach(filter=>filter.addEventListener("click",()=>{
   const category=filter.dataset.filter;
   document.querySelectorAll(".work-filter").forEach(item=>{const active=item===filter;item.classList.toggle("active",active);item.setAttribute("aria-pressed",String(active));});
-  document.querySelectorAll(".work-card").forEach(card=>{card.hidden=category!=="all"&&card.dataset.category!==category;});
+  document.querySelectorAll(".work-card").forEach(card=>{card.hidden=category!=="all"&&card.querySelector(".work-image-button").dataset.category!==category;});
  }));
  box.addEventListener("click",event=>{if(event.target===box||event.target.closest(".work-lightbox-close"))close();});
  document.addEventListener("keydown",event=>{if(event.key==="Escape")close();});
