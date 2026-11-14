@@ -123,3 +123,15 @@ h1 em,h2 em,.work-art i,.work-art em,.about-panel h3 em,.about-monogram{font-fam
 
 /* BLOOM typography: use Outfit SemiBold consistently */
 body,body *{font-family:"Outfit",sans-serif!important;font-weight:600!important;font-style:normal!important}
+
+/* Hero text: explicitly match every visible line to Outfit SemiBold */
+.hero-copy>p,
+.hero-actions .primary-btn,
+.hero-actions .text-link,
+.hero-meta,
+.hero-meta span,
+.hero-bottom-note,
+.hero-bottom-note span,
+.eyebrow,
+.art-caption,
+.art-caption span{font-family:"Outfit",sans-serif!important;font-weight:600!important;font-style:normal!important}
