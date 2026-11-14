@@ -488,6 +488,29 @@ body.work-lightbox-open{overflow:hidden}
 }
 body { animation: bloomPageLoad .78s cubic-bezier(.2,.7,.25,1) both; }
 
+/* Content sections gently pop into view as visitors scroll */
+.bloom-reveal {
+  opacity: 0;
+  filter: blur(7px);
+  transform: translateY(28px) scale(.985);
+  transition: opacity .72s ease, filter .72s ease, transform .72s cubic-bezier(.2,.75,.25,1);
+  will-change: opacity, transform, filter;
+}
+.bloom-reveal.is-revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .bloom-reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
 /* Statistics cards pop up as the section enters the viewport */
 .bloom-impact-heading,
 .bloom-impact-stats article {
