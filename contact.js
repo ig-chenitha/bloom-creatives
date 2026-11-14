@@ -16,6 +16,7 @@ if (contactForm) {
       name: String(formData.get("name") || "").trim(),
       email: String(formData.get("email") || "").trim(),
       service: String(formData.get("service") || "").trim(),
+      budget: String(formData.get("budget") || "").trim() || "Not specified",
       message: String(formData.get("message") || "").trim()
     };
 
@@ -45,7 +46,7 @@ if (contactForm) {
       status.textContent = "Sorry, your message could not be sent right now. Please try again or email bloom.creativesss@gmail.com.";
     } finally {
       submitButton.disabled = false;
-      submitButton.innerHTML = 'SEND MESSAGE <span>↗</span>';
+      submitButton.innerHTML = 'SUBMIT INQUIRY <span>↗</span>';
     }
   });
 }
