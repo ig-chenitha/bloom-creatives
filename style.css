@@ -940,3 +940,21 @@ a:focus,a:active,a:focus-visible,
   .budget-input-row{grid-template-columns:105px minmax(0,1fr);gap:8px}
   .budget-input-row input,.budget-input-row select{padding-left:11px;padding-right:11px}
 }
+
+/* Rounded outer corners for the Creative Services list */
+.services .service-list{
+  border:1px solid rgba(255,255,255,.2)!important;
+  border-radius:22px!important;
+  overflow:hidden!important;
+  isolation:isolate;
+  background:rgba(255,255,255,.025);
+}
+.services .service-list article:first-child{
+  border-top-left-radius:21px!important;
+  border-top-right-radius:21px!important;
+}
+.services .service-list article:last-child{
+  border-bottom-left-radius:21px!important;
+  border-bottom-right-radius:21px!important;
+  border-bottom:0!important;
+}
