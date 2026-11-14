@@ -1102,3 +1102,57 @@ a:focus,a:active,a:focus-visible,
   #home .hero-actions .text-link{font-size:11px}
   #home .hero-meta{margin-top:48px;font-size:7px;gap:9px}
 }
+
+
+/* Home hero alignment: eyebrow left, title and description centered, actions right */
+@media(min-width:701px){
+  #home .hero-copy{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    text-align:center;
+    width:100%;
+    max-width:1120px;
+    margin-inline:auto;
+  }
+  #home .hero-copy .eyebrow{
+    align-self:flex-start;
+    justify-content:flex-start;
+    width:auto;
+    margin-left:0;
+  }
+  #home .hero-copy h1{
+    align-self:center;
+    text-align:center;
+    width:100%;
+    max-width:1100px;
+    font-size:clamp(76px,8.8vw,116px);
+    margin:24px auto 28px;
+  }
+  #home .hero-copy>p{
+    align-self:center;
+    text-align:center;
+    width:min(100%,880px);
+    max-width:880px;
+    font-size:18px;
+    line-height:1.9;
+  }
+  #home .hero-actions{
+    align-self:flex-end;
+    justify-content:flex-end;
+    width:100%;
+    margin-top:42px;
+    gap:34px;
+  }
+  #home .hero-meta{
+    align-self:center;
+    justify-content:center;
+    width:100%;
+  }
+}
+@media(max-width:700px){
+  #home .hero-copy .eyebrow{align-self:center;justify-content:center}
+  #home .hero-copy h1,
+  #home .hero-copy>p{text-align:center}
+  #home .hero-actions{align-self:center;justify-content:center}
+}
