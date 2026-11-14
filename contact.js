@@ -1,10 +1,6 @@
 const contactForm = document.getElementById("contact-form");
 
-if (contactForm && window.supabase) {
-  const contactClient = window.supabase.createClient(
-    "https://qenobhmetbarxepggocx.supabase.co",
-    "sb_publishable_U3jXC6vggzC_bqHJxmAoEA_riJcQh29"
-  );
+if (contactForm) {
   const status = document.getElementById("contact-status");
   const submitButton = contactForm.querySelector(".contact-send");
 
@@ -14,6 +10,9 @@ if (contactForm && window.supabase) {
 
     const formData = new FormData(contactForm);
     const message = {
+      access_key: "cda73721-8282-46ff-a4e3-7adb6872b8ac",
+      subject: "New website enquiry — BLOOM CREATIVES",
+      from_name: "BLOOM CREATIVES Website",
       name: String(formData.get("name") || "").trim(),
       email: String(formData.get("email") || "").trim(),
       service: String(formData.get("service") || "").trim(),
@@ -25,32 +24,28 @@ if (contactForm && window.supabase) {
     status.textContent = "Sending your message securely...";
 
     try {
-      const { error: saveError } = await contactClient
-        .from("contact_messages")
-        .insert(message);
-      if (saveError) throw saveError;
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(message)
+      });
 
-      const { error: emailError } = await contactClient.functions.invoke(
-        "send-contact-email",
-        { body: message }
-      );
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Message delivery failed");
+      }
 
       contactForm.reset();
-      if (emailError) {
-        console.error("BLOOM email notification:", emailError);
-        status.textContent = "Your message was saved, but the email notification could not be sent. Please try again later.";
-      } else {
-        status.textContent = "Thank you! Your message has been received and an email notification has been sent.";
-      }
+      status.textContent = "Thank you! Your message has been sent successfully. I'll get back to you soon.";
     } catch (error) {
       console.error("BLOOM contact form:", error);
-      status.textContent = "Sorry, your message could not be submitted. Please try again or email bloom.creativesss@gmail.com.";
+      status.textContent = "Sorry, your message could not be sent right now. Please try again or email bloom.creativesss@gmail.com.";
     } finally {
       submitButton.disabled = false;
       submitButton.innerHTML = 'SEND MESSAGE <span>↗</span>';
     }
   });
-} else if (contactForm) {
-  const status = document.getElementById("contact-status");
-  if (status) status.textContent = "The contact form is temporarily unavailable. Please email bloom.creativesss@gmail.com.";
 }
