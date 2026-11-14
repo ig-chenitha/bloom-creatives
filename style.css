@@ -766,3 +766,36 @@ input:focus,textarea:focus,select:focus{
     padding:7px 10px;
   }
 }
+
+
+/* Gallery category filters — every option stays white with black text */
+.gallery-page .work-filter,
+.gallery-page .work-filter:hover,
+.gallery-page .work-filter:active,
+.gallery-page .work-filter:focus,
+.gallery-page .work-filter:focus-visible,
+.gallery-page .work-filter.active{
+  background:#ffffff!important;
+  color:#000000!important;
+  border:1px solid #ffffff!important;
+  box-shadow:none!important;
+  outline:none!important;
+  -webkit-tap-highlight-color:transparent!important;
+}
+.gallery-page .work-filter span,
+.gallery-page .work-filter:hover span,
+.gallery-page .work-filter:active span,
+.gallery-page .work-filter:focus span,
+.gallery-page .work-filter.active span{
+  color:#555555!important;
+}
+
+/* Remove blue browser tap/focus glow across the site */
+html,body,*{-webkit-tap-highlight-color:transparent!important}
+button:focus,button:active,button:focus-visible,
+a:focus,a:active,a:focus-visible,
+[role="button"]:focus,[role="button"]:active,[role="button"]:focus-visible{
+  -webkit-tap-highlight-color:transparent!important;
+  box-shadow:none!important;
+  outline-color:rgba(255,255,255,.75)!important;
+}
