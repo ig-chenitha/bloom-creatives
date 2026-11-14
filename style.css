@@ -1300,3 +1300,13 @@ a:focus,a:active,a:focus-visible,
   #home .hero-actions{margin-top:88px}
   #home .hero-meta{margin-top:78px}
 }
+
+
+/* Mobile only: lower the main heading and description without shifting other elements */
+@media(max-width:700px){
+  #home .hero-copy h1,
+  #home .hero-copy>p{
+    position:relative;
+    top:24px;
+  }
+}
