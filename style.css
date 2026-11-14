@@ -135,3 +135,14 @@ body,body *{font-family:"Outfit",sans-serif!important;font-weight:600!important;
 .eyebrow,
 .art-caption,
 .art-caption span{font-family:"Outfit",sans-serif!important;font-weight:600!important;font-style:normal!important}
+
+/* BLOOM accent typography: Playfair Display Italic only for highlighted display words */
+body h1 em,
+body h2 em,
+body .work-art i,
+body .work-art em,
+body .about-panel h3 em{
+  font-family:"Playfair Display",serif!important;
+  font-style:italic!important;
+  font-weight:500!important;
+}
