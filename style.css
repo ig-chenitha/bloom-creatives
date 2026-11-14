@@ -1310,3 +1310,17 @@ a:focus,a:active,a:focus-visible,
     top:24px;
   }
 }
+
+
+/* Mobile gallery: defer off-screen poster card rendering until the user scrolls near them */
+@media(max-width:700px){
+  .work-gallery-grid .work-card{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 520px;
+  }
+  .work-gallery-grid .work-image-button img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+}
