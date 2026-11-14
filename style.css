@@ -984,3 +984,26 @@ a:focus,a:active,a:focus-visible,
   }
   #home .hero-copy{transform:none}
 }
+
+
+/* Center the Home hero text and actions after removing the 3D artwork */
+#home .hero-copy{
+  max-width:900px;
+  margin-inline:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+#home .hero-copy .eyebrow{justify-content:center}
+#home .hero-copy h1,
+#home .hero-copy>p{margin-left:auto;margin-right:auto}
+#home .hero-copy>p{max-width:650px}
+#home .hero-actions{justify-content:center;flex-wrap:wrap}
+#home .hero-meta{justify-content:center;flex-wrap:wrap}
+@media(max-width:700px){
+  #home .hero-copy{align-items:center;text-align:center}
+  #home .hero-copy .eyebrow{justify-content:center}
+  #home .hero-actions{justify-content:center}
+  #home .hero-meta{justify-content:center}
+}
