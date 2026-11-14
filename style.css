@@ -486,7 +486,7 @@ body.work-lightbox-open{overflow:hidden}
   from { opacity: 0; filter: blur(9px); transform: translateY(8px); }
   to { opacity: 1; filter: blur(0); transform: translateY(0); }
 }
-body { animation: bloomPageLoad .78s cubic-bezier(.2,.7,.25,1) both; }
+main { animation: bloomPageLoad .78s cubic-bezier(.2,.7,.25,1) both; }
 
 /* Content sections gently pop into view as visitors scroll */
 .bloom-reveal {
@@ -527,7 +527,7 @@ body { animation: bloomPageLoad .78s cubic-bezier(.2,.7,.25,1) both; }
 }
 .bloom-impact.is-visible .bloom-impact-stats article:nth-child(2) { transition-delay: .14s; }
 @media (prefers-reduced-motion: reduce) {
-  body { animation: none; }
+  main { animation: none; }
   .bloom-impact-heading,
   .bloom-impact-stats article {
     opacity: 1;
