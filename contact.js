@@ -44,7 +44,7 @@ if (contactForm && window.supabase) {
       }
     } catch (error) {
       console.error("BLOOM contact form:", error);
-      status.textContent = "Sorry, your message could not be submitted. Please try again or email bloom.creativesss@gamil.com.";
+      status.textContent = "Sorry, your message could not be submitted. Please try again or email bloom.creativesss@gmail.com.";
     } finally {
       submitButton.disabled = false;
       submitButton.innerHTML = 'SEND MESSAGE <span>↗</span>';
@@ -52,5 +52,5 @@ if (contactForm && window.supabase) {
   });
 } else if (contactForm) {
   const status = document.getElementById("contact-status");
-  if (status) status.textContent = "The contact form is temporarily unavailable. Please email bloom.creativesss@gamil.com.";
+  if (status) status.textContent = "The contact form is temporarily unavailable. Please email bloom.creativesss@gmail.com.";
 }
