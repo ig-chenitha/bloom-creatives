@@ -17,6 +17,24 @@
   <meta name="twitter:title" content="Graphic Design Portfolio & Selected Work | BLOOM CREATIVES">
   <meta name="twitter:description" content="Explore selected graphic design work by BLOOM CREATIVES, including music posters, promotional artwork, event designs and visual experiments.">
   <meta name="twitter:image" content="https://bloom-creatives.pages.dev/assets/gallery/Billie%20Eilish%2004.png">
+
+<style>
+/* Mobile Selected Works: remove the slow blur reveal and use a quick pop-up. */
+@media (max-width: 700px) {
+  .gallery-page .gallery-collection.bloom-reveal {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: scale(.965) !important;
+    transition: transform .28s cubic-bezier(.2,.75,.25,1) !important;
+    will-change: transform;
+  }
+  .gallery-page .gallery-collection.bloom-reveal.is-revealed {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: scale(1) !important;
+  }
+}
+</style>
 </head>
 <body><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
 <header class="site-header"><div class="nav-shell">
