@@ -17,6 +17,30 @@
   <meta name="twitter:title" content="Graphic Design Portfolio & Selected Work | BLOOM CREATIVES">
   <meta name="twitter:description" content="Explore selected graphic design work by BLOOM CREATIVES, including music posters, promotional artwork, event designs and visual experiments.">
   <meta name="twitter:image" content="https://bloom-creatives.pages.dev/assets/gallery/Billie%20Eilish%2004.png">
+
+<style>
+/* Gallery page: keep the layout still; only poster images fade in when loaded. */
+main.gallery-page{animation:none!important}
+.gallery-page .bloom-reveal,
+.gallery-page .bloom-reveal.is-revealed,
+.gallery-page .bloom-impact-heading,
+.gallery-page .bloom-impact-stats article{
+  opacity:1!important;filter:none!important;transform:none!important;
+  transition:none!important;animation:none!important;will-change:auto!important;
+}
+.gallery-page .work-card,
+.gallery-page .work-card:hover,
+.gallery-page .work-image-button:hover img,
+.gallery-page .project-details-link,
+.gallery-page .project-details-link:hover,
+.gallery-page .work-filter{
+  transform:none!important;transition:none!important;
+}
+.gallery-page .work-image-button img{
+  opacity:0;transition:opacity .22s ease!important;
+}
+.gallery-page .work-image-button img.is-loaded{opacity:1}
+</style>
 </head>
 <body><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
 <header class="site-header"><div class="nav-shell">
@@ -56,6 +80,11 @@
 (() => {
  // Start loading gallery posters before they enter the phone viewport.
  const galleryImages=[...document.querySelectorAll(".work-image-button img")];
+ galleryImages.forEach(img=>{
+  const markLoaded=()=>img.classList.add("is-loaded");
+  if(img.complete&&img.naturalWidth>0)markLoaded();
+  else img.addEventListener("load",markLoaded,{once:true});
+ });
  if("IntersectionObserver" in window){
   const imageLoader=new IntersectionObserver((entries,observer)=>{
    entries.forEach(entry=>{
