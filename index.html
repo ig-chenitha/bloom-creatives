@@ -131,33 +131,7 @@
   </main>
   <footer class="section-wrap"><a class="footer-brand" href="#home" aria-label="BLOOM home"><img src="assets/bloom-logo.svg" alt="BLOOM" loading="lazy" decoding="async"></a><span>© <span id="year"></span> BLOOM CREATIVES | INDEPENDENT CREATIVE DESIGNER</span><a href="#home">BACK TO TOP ↑</a></footer>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
-  <script>
-    (() => {
-      const section = document.querySelector(".bloom-impact");
-      if (!section || !("IntersectionObserver" in window)) return;
-      const counters = section.querySelectorAll(".impact-count");
-      const animate = () => counters.forEach((counter) => {
-        const target = Number(counter.dataset.target);
-        const duration = 1100;
-        const start = performance.now();
-        const tick = (now) => {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          counter.textContent = String(Math.round(target * eased));
-          if (progress < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-      });
-      const observer = new IntersectionObserver((entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          section.classList.add("is-visible");
-          animate();
-          observer.disconnect();
-        }
-      }, { threshold: 0.35 });
-      observer.observe(section);
-    })();
-  </script>
+  
   <script src="script.js" defer></script>
 </body>
 </html>
