@@ -1311,3 +1311,21 @@ a:focus,a:active,a:focus-visible,
   }
 }
 
+
+
+/* Extracted from gallery.html — original responsive presentation preserved */
+/* Mobile Selected Works: remove the slow blur reveal and use a quick pop-up. */
+@media (max-width: 700px) {
+  .gallery-page .gallery-collection.bloom-reveal {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: scale(.965) !important;
+    transition: transform .28s cubic-bezier(.2,.75,.25,1) !important;
+    will-change: transform;
+  }
+  .gallery-page .gallery-collection.bloom-reveal.is-revealed {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: scale(1) !important;
+  }
+}
