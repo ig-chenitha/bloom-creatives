@@ -47,25 +47,4 @@
 <div class="project-detail-cta"><a class="text-link" href="gallery.html">← Explore more work</a><a class="primary-btn" href="contact.html">START A PROJECT <span>↗</span></a></div>
 </main>
 <footer class="section-wrap"><a class="footer-brand" href="index.html#home" aria-label="BLOOM home"><img src="assets/bloom-logo.svg" alt="BLOOM" loading="lazy" decoding="async"></a><span>© <span id="year"></span> BLOOM CREATIVES | INDEPENDENT CREATIVE DESIGNER</span><a href="index.html#home">BACK TO HOME ↑</a></footer>
-<script>
-(() => {
- const projects=[{"id":"billie-eilish","title":"Billie Eilish Music-Inspired Design","category":"MUSIC POSTER","discipline":"Visual exploration","description":"A music-inspired poster exploring atmosphere, contrast and visual storytelling through a bold editorial composition.","image":"assets/gallery/Billie%20Eilish%2004.png"},{"id":"central-cee","title":"Central Cee Music-Inspired Design","category":"MUSIC POSTER","discipline":"Visual exploration","description":"A music-inspired visual study built around expressive typography, imagery and a distinctive graphic mood.","image":"assets/gallery/Centrak%20Cee%2001.png"},{"id":"oreo-shake","title":"Oreo Shake Promotion","category":"ADVERTISING POSTER","discipline":"Promotional design","description":"A promotional poster concept designed to make a product stand out through clear hierarchy and attention-grabbing visuals.","image":"assets/gallery/Coffee%20Poster.png"},{"id":"the-weeknd","title":"The Weeknd Music-Inspired Design","category":"MUSIC POSTER","discipline":"Visual exploration","description":"A music-inspired composition using imagery and visual contrast to create a memorable poster direction.","image":"assets/gallery/The%20Weeknd%20Design%2003.png"},{"id":"hindi-poster","title":"Cinematic Portrait Design","category":"MUSIC POSTER","discipline":"Visual exploration","description":"A Cinematic portrait design exploring expressive imagery, atmosphere and a distinctive visual composition.","image":"assets/gallery/Hindi%20Poster%2002.png"},{"id":"magic-show","title":"Magic Show","category":"EVENT PROMOTION","discipline":"Event design","description":"An event-promotion poster created to communicate the show and build interest through a strong visual direction.","image":"assets/gallery/Magican%20Poster%2007.png"},{"id":"halloween-party","title":"Halloween Party","category":"EVENT PROMOTION","discipline":"Event design","description":"A themed event poster designed to establish the Halloween atmosphere and present event information clearly.","image":"assets/gallery/Main%20Poster%2004.png"},{"id":"dj-night","title":"DJ Night Poster","category":"EVENT PROMOTION","discipline":"Event design","description":"A nightlife promotional visual focused on energy, atmosphere and communicating the event at a glance.","image":"assets/gallery/Party%20Poster.png"},{"id":"event-postponed","title":"Event Postponed","category":"ANNOUNCEMENT POSTER","discipline":"Event communication","description":"An event announcement design created to communicate an important schedule update clearly and visibly.","image":"assets/gallery/Postpoend%20Poster%2002.png"},{"id":"tickets-80","title":"Tickets 80% Sold Out","category":"PROMOTIONAL DESIGN","discipline":"Event promotion","description":"A ticket-sales update visual designed to highlight availability and encourage timely audience action.","image":"assets/gallery/Ticket%2080%25%20Poster%2013.png"}];
- const id=new URLSearchParams(window.location.search).get("project");
- const project=projects.find(item=>item.id===id);
- if(!project){document.querySelector(".project-detail-page").innerHTML='<div class="project-not-found"><p class="eyebrow">PROJECT NOT FOUND</p><h1>This work is not <em>available.</em></h1><a class="primary-btn" href="gallery.html">BACK TO GALLERY ↗</a></div>';return;}
- document.title=project.title+" | BLOOM CREATIVES";
- const pageUrl=window.location.origin+window.location.pathname+"?project="+encodeURIComponent(project.id);
- document.querySelector('link[rel="canonical"]')?.setAttribute("href",pageUrl);
- document.querySelector('meta[property="og:url"]')?.setAttribute("content",pageUrl);
- document.querySelector('meta[property="og:title"]')?.setAttribute("content",project.title+" | BLOOM CREATIVES");
- document.querySelector('meta[property="og:description"]')?.setAttribute("content",project.description);
- document.querySelector('meta[name="description"]')?.setAttribute("content",project.description);
- document.querySelector('meta[property="og:image"]')?.setAttribute("content",new URL(project.image,window.location.href).href);
- document.querySelector('meta[name="twitter:image"]')?.setAttribute("content",new URL(project.image,window.location.href).href);
- document.getElementById("project-title").textContent=project.title;
- document.getElementById("project-category").textContent=project.category;
- document.getElementById("project-description").textContent=project.description;
- document.getElementById("project-discipline").textContent=project.discipline;
- const image=document.getElementById("project-image");image.src=project.image;image.alt=project.title;
-})();
-</script><script src="script.js" defer></script></body></html>
+<script src="script.js" defer></script></body></html>
