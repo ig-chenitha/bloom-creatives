@@ -1349,3 +1349,9 @@ a:focus,a:active,a:focus-visible,
   .designer-resume-inner h2{font-size:clamp(42px,10vw,58px)}
   .designer-resume-actions{gap:19px}
 }
+
+
+/* Project-specific detail layout */
+.project-breakdown-grid article{min-height:190px}
+.project-visual-notes{margin-top:42px}
+.project-visual-notes>p{align-self:center}
