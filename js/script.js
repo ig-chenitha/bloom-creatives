@@ -250,6 +250,6 @@ if (feedbackForm && window.supabase) {
  document.getElementById("project-direction").textContent=project.direction;
  document.getElementById("project-design-language").textContent=project.designLanguage;
  document.getElementById("project-process-grid").innerHTML=project.process.map((step,i)=>'<article><span>0'+(i+1)+' / '+['CONCEPT','DESIGN','REFINEMENT'][i]+'</span><h3>'+['Explore the idea.','Build the composition.','Refine the details.'][i]+'</h3><p>'+step+'</p></article>').join("");
- document.getElementById("project-software-list").innerHTML='<img class="project-software-icon" src="assets/Photoshop%20Logo.png" alt="Adobe Photoshop logo"><div><strong>Adobe Photoshop</strong><p>Image editing, poster composition and final visual refinement.</p></div>';
+ document.getElementById("project-software-list").innerHTML='<img class="project-software-icon" src="assets/Photoshop%20Logo.png?v=2" alt="Adobe Photoshop logo"><div><strong>Adobe Photoshop</strong><p>Image editing, poster composition and final visual refinement.</p></div>';
  const image=document.getElementById("project-image");image.src=project.image;image.alt=project.title;
 })();
