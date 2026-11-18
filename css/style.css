@@ -1361,3 +1361,7 @@ a:focus,a:active,a:focus-visible,
 
 /* Scalable Photoshop software mark */
 .project-software-icon{display:block;width:54px;height:54px;flex:0 0 54px;object-fit:contain;border-radius:12px}
+
+
+/* Keep the supplied full-colour Photoshop mark visible at its native proportions */
+.project-software-list .project-software-icon{width:64px;height:64px;flex:0 0 64px;display:block;object-fit:contain;background:transparent;border:0;border-radius:0;padding:0;box-shadow:none}
