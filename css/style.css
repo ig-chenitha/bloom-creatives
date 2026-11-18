@@ -1355,3 +1355,5 @@ a:focus,a:active,a:focus-visible,
 .project-breakdown-grid article{min-height:190px}
 .project-visual-notes{margin-top:42px}
 .project-visual-notes>p{align-self:center}
+
+.project-software-icon{display:block;width:58px;height:58px;flex:0 0 58px;object-fit:contain;background:transparent;border:0;border-radius:0;box-shadow:none}
