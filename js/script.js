@@ -449,10 +449,12 @@ if (feedbackForm && window.supabase) {
   let active=0,timer=null;
   const position=()=>{
    const word=words[active]; if(!word)return;
-   frame.style.left=(word.offsetLeft-6)+"px";
-   frame.style.top=(word.offsetTop-5)+"px";
-   frame.style.width=(word.offsetWidth+12)+"px";
-   frame.style.height=(word.offsetHeight+10)+"px";
+   const headingRect=heading.getBoundingClientRect();
+   const wordRect=word.getBoundingClientRect();
+   frame.style.left=(wordRect.left-headingRect.left-7)+"px";
+   frame.style.top=(wordRect.top-headingRect.top-5)+"px";
+   frame.style.width=(wordRect.width+14)+"px";
+   frame.style.height=(wordRect.height+10)+"px";
    frame.classList.add("is-visible");
   };
   const focus=(n)=>{
