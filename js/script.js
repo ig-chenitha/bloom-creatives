@@ -434,3 +434,51 @@ if (feedbackForm && window.supabase) {
  document.getElementById("project-software-list").innerHTML='<img class="project-software-icon" src="assets/Photoshop%20Logo.png?v=2" alt="Adobe Photoshop logo"><div><strong>Adobe Photoshop</strong><p>Image editing, poster composition and final visual refinement.</p></div>';
  const image=document.getElementById("project-image");image.src=project.image;image.alt=project.title;
 })();
+
+
+// BLOOM TRUE FOCUS HEADING
+(() => {
+  const heading = document.querySelector(".bloom-focus-heading");
+  if (!heading) return;
+  const words = [...heading.querySelectorAll(".bloom-focus-word")];
+  const frame = heading.querySelector(".bloom-focus-frame");
+  if (!words.length || !frame) return;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reducedMotion.matches) return;
+  let active = 0;
+  let timer = null;
+  let paused = false;
+  const placeFrame = () => {
+    const word = words[active];
+    if (!word) return;
+    const h = heading.getBoundingClientRect();
+    const r = word.getBoundingClientRect();
+    frame.style.left = (r.left - h.left - 5) + "px";
+    frame.style.top = (r.top - h.top - 4) + "px";
+    frame.style.width = (r.width + 10) + "px";
+    frame.style.height = (r.height + 8) + "px";
+    frame.classList.add("is-visible");
+  };
+  const show = (index) => {
+    active = index;
+    words.forEach((word, i) => {
+      word.classList.toggle("is-focused", i === active);
+      word.classList.toggle("is-blurred", i !== active);
+    });
+    placeFrame();
+  };
+  const stop = () => { if (timer) window.clearInterval(timer); timer = null; };
+  const start = () => {
+    stop();
+    if (paused || document.hidden) return;
+    timer = window.setInterval(() => show((active + 1) % words.length), 1550);
+  };
+  heading.addEventListener("mouseenter", () => { paused = true; stop(); });
+  heading.addEventListener("mouseleave", () => { paused = false; start(); });
+  heading.addEventListener("focusin", () => { paused = true; stop(); });
+  heading.addEventListener("focusout", () => { paused = false; start(); });
+  document.addEventListener("visibilitychange", start);
+  window.addEventListener("resize", placeFrame, { passive: true });
+  show(0);
+  start();
+})();
