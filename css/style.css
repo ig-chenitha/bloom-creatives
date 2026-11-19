@@ -1365,3 +1365,18 @@ a:focus,a:active,a:focus-visible,
 
 /* Keep the supplied full-colour Photoshop mark visible at its native proportions */
 .project-software-list .project-software-icon{width:64px;height:64px;flex:0 0 64px;display:block;object-fit:contain;background:transparent;border:0;border-radius:0;padding:0;box-shadow:none}
+
+
+/* BLOOM TRUE FOCUS HEADING */
+.hero h1.bloom-focus-heading{position:relative;display:inline-block;isolation:isolate}
+.bloom-focus-word{display:inline-block;position:relative;transition:filter .42s ease,opacity .42s ease,color .42s ease;text-shadow:0 0 0 transparent}
+.bloom-focus-word.is-blurred{filter:blur(4px);opacity:.42}
+.bloom-focus-word.is-focused{filter:blur(0);opacity:1;text-shadow:0 0 24px rgba(255,255,255,.12)}
+.bloom-focus-frame{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;transition:all .42s cubic-bezier(.2,.8,.2,1);z-index:2}
+.bloom-focus-frame.is-visible{opacity:1}
+.bloom-focus-frame i{position:absolute;width:9px;height:9px;border-color:var(--accent,#ff6b35);border-style:solid}
+.bloom-focus-frame i:nth-child(1){top:0;left:0;border-width:1.5px 0 0 1.5px}
+.bloom-focus-frame i:nth-child(2){top:0;right:0;border-width:1.5px 1.5px 0 0}
+.bloom-focus-frame i:nth-child(3){bottom:0;left:0;border-width:0 0 1.5px 1.5px}
+.bloom-focus-frame i:nth-child(4){bottom:0;right:0;border-width:0 1.5px 1.5px 0}
+@media(prefers-reduced-motion:reduce){.bloom-focus-word,.bloom-focus-frame{transition:none!important}.bloom-focus-word.is-blurred{filter:none;opacity:1}}
