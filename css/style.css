@@ -1365,31 +1365,3 @@ a:focus,a:active,a:focus-visible,
 
 /* Keep the supplied full-colour Photoshop mark visible at its native proportions */
 .project-software-list .project-software-icon{width:64px;height:64px;flex:0 0 64px;display:block;object-fit:contain;background:transparent;border:0;border-radius:0;padding:0;box-shadow:none}
-
-
-/* TrueFocus-style animated focus for the main hero heading */
-.true-focus-heading{overflow:visible}
-.true-focus-wrap{position:relative;display:inline-block;padding:9px 12px 13px;margin:-9px -12px -13px;max-width:100%}
-.true-focus-line{display:block;white-space:nowrap}
-.true-focus-line .focus-word{display:inline-block;will-change:filter,opacity,transform;transition:filter .5s cubic-bezier(.65,0,.35,1),opacity .5s ease,transform .5s cubic-bezier(.65,0,.35,1)}
-.true-focus-line .focus-word.is-focused{filter:blur(0)!important;opacity:1!important;transform:scale(1.025)}
-.true-focus-line .focus-word.is-unfocused{filter:blur(2px);opacity:.88}
-.true-focus-frame{position:absolute;inset:0;pointer-events:none;z-index:3}
-.focus-corner{position:absolute;width:18px;height:18px;border-color:var(--orange);border-style:solid;filter:drop-shadow(0 0 5px rgba(255,99,59,.32));transition:all .45s cubic-bezier(.65,0,.35,1)}
-.focus-corner.top-left{top:var(--focus-y,0px);left:var(--focus-x,0px);border-width:2px 0 0 2px}
-.focus-corner.top-right{top:var(--focus-y,0px);left:var(--focus-right,0px);border-width:2px 2px 0 0}
-.focus-corner.bottom-left{top:var(--focus-bottom,0px);left:var(--focus-x,0px);border-width:0 0 2px 2px}
-.focus-corner.bottom-right{top:var(--focus-bottom,0px);left:var(--focus-right,0px);border-width:0 2px 2px 0}
-@media(max-width:460px){.true-focus-wrap{padding:7px 9px 10px;margin:-7px -9px -10px}.focus-corner{width:13px;height:13px}}
-@media(prefers-reduced-motion:reduce){.true-focus-line .focus-word,.focus-corner{transition:none!important}.true-focus-line .focus-word.is-unfocused{filter:none;opacity:1}}
-
-
-/* Fix: keep the four focus corners together as one measured frame. */
-.true-focus-wrap{position:relative}
-.true-focus-frame{position:absolute!important;inset:auto!important;left:0;top:0;width:0;height:0;pointer-events:none;z-index:10;opacity:1}
-.focus-corner{position:absolute!important;width:18px;height:18px;display:block;border-color:#ff7652!important;border-style:solid!important;filter:drop-shadow(0 0 5px rgba(255,118,82,.4));}
-.focus-corner.top-left{top:0!important;left:0!important;right:auto!important;bottom:auto!important;border-width:2px 0 0 2px!important}
-.focus-corner.top-right{top:0!important;right:0!important;left:auto!important;bottom:auto!important;border-width:2px 2px 0 0!important}
-.focus-corner.bottom-left{bottom:0!important;left:0!important;top:auto!important;right:auto!important;border-width:0 0 2px 2px!important}
-.focus-corner.bottom-right{bottom:0!important;right:0!important;top:auto!important;left:auto!important;border-width:0 2px 2px 0!important}
-@media(max-width:460px){.focus-corner{width:13px;height:13px}}
