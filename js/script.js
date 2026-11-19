@@ -227,7 +227,188 @@ if (feedbackForm && window.supabase) {
 
 /* Extracted from project.html — original page behavior preserved */
 (() => {
- const projects=[{"id":"billie-eilish","title":"Billie Eilish Music-Inspired Design","category":"MUSIC POSTER","discipline":"Visual exploration","description":"A music-inspired poster exploring atmosphere, contrast and visual storytelling through a bold editorial composition.","image":"assets/gallery/Billie%20Eilish%2004.png","objective":"Create an artist-inspired music poster with a strong visual mood.","concept":"Translate the music reference into an editorial, portrait-led composition.","direction":"Let the main image lead; use supporting type and contrast to guide the eye.","designLanguage":"A restrained, contrast-led treatment gives the poster its atmosphere. Type supports the image rather than competing with it.","process":["Explore artist references and mood.","Build an image-led composition.","Refine contrast, spacing and type."]},{"id":"central-cee","title":"Central Cee Music-Inspired Design","category":"MUSIC POSTER","discipline":"Visual exploration","description":"A music-inspired visual study built around expressive typography, imagery and a distinctive graphic mood.","image":"assets/gallery/Centrak%20Cee%2001.png","objective":"Create a bold music-inspired poster that is immediately recognisable.","concept":"Use the artist reference as the starting point for a graphic interpretation.","direction":"Keep the subject prominent and organise typography around the main image.","designLanguage":"Expressive imagery and typography create energy while preserving a clear focal point.","process":["Set the visual tone.","Arrange image and typography.","Polish scale, spacing and contrast."]},{"id":"oreo-shake","title":"Oreo Shake Promotion","category":"ADVERTISING POSTER","discipline":"Promotional design","description":"A promotional poster concept designed to make a product stand out through clear hierarchy and attention-grabbing visuals.","image":"assets/gallery/Coffee%20Poster.png","objective":"Make the Oreo Shake the hero of a clear product promotion.","concept":"Use a product-first advertising layout with supporting promotional copy.","direction":"Prioritise the drink image, then arrange the headline and supporting message.","designLanguage":"Colour and typography should complement the featured drink and keep the message easy to scan.","process":["Identify the hero product.","Build the promotional layout.","Check hierarchy and clarity."]},{"id":"the-weeknd","title":"The Weeknd Music-Inspired Design","category":"MUSIC POSTER","discipline":"Visual exploration","description":"A music-inspired composition using imagery and visual contrast to create a memorable poster direction.","image":"assets/gallery/The%20Weeknd%20Design%2003.png","objective":"Create a memorable music-inspired visual that communicates mood.","concept":"Treat the poster as a visual interpretation of the artist's atmosphere.","direction":"Use a dominant image with carefully placed supporting details.","designLanguage":"Image contrast establishes the mood; typography remains secondary to the main visual.","process":["Define the atmosphere.","Develop the image-led composition.","Unify contrast and text placement."]},{"id":"hindi-poster","title":"Cinematic Portrait Design","category":"MUSIC POSTER","discipline":"Visual exploration","description":"A Cinematic portrait design exploring expressive imagery, atmosphere and a distinctive visual composition.","image":"assets/gallery/Hindi%20Poster%2002.png","objective":"Create an atmospheric cinematic portrait poster.","concept":"Use a character-led composition to suggest a story.","direction":"Let the portrait lead, supported by tonal contrast and considered negative space.","designLanguage":"A cinematic tonal treatment builds atmosphere while integrated type preserves the portrait's impact.","process":["Find the focal portrait.","Shape the cinematic image.","Balance portrait, space and type."]},{"id":"magic-show","title":"Magic Show","category":"EVENT PROMOTION","discipline":"Event design","description":"An event-promotion poster created to communicate the show and build interest through a strong visual direction.","image":"assets/gallery/Magican%20Poster%2007.png","objective":"Promote the magic show and build interest in the event.","concept":"Use a theatrical, mystery-led direction that signals magic and performance.","direction":"Create a strong central visual and organise event information around it.","designLanguage":"Dramatic contrast and display typography create a theatrical mood while keeping details legible.","process":["Establish the show mood.","Combine key imagery and event information.","Check atmosphere and readability."]},{"id":"halloween-party","title":"Halloween Party","category":"EVENT PROMOTION","discipline":"Event design","description":"A themed event poster designed to establish the Halloween atmosphere and present event information clearly.","image":"assets/gallery/Main%20Poster%2004.png","objective":"Introduce the Halloween party and communicate its theme.","concept":"Create a spooky event identity that feels immersive and recognisable.","direction":"Keep the event title prominent and organise supporting information clearly.","designLanguage":"A dark atmospheric direction supports the theme; display type gives the title character.","process":["Set the Halloween theme.","Create the themed key visual.","Refine the event information hierarchy."]},{"id":"dj-night","title":"DJ Night Poster","category":"EVENT PROMOTION","discipline":"Event design","description":"A nightlife promotional visual focused on energy, atmosphere and communicating the event at a glance.","image":"assets/gallery/Party%20Poster.png","objective":"Promote the DJ night with an energetic visual direction.","concept":"Suggest music, movement and a night-time event atmosphere.","direction":"Give the event title and central graphic the strongest presence.","designLanguage":"Bold contrast and energetic typography help the poster stand out while staying readable.","process":["Define the event mood.","Create the poster hierarchy.","Refine spacing and legibility."]},{"id":"event-postponed","title":"Event Postponed","category":"ANNOUNCEMENT POSTER","discipline":"Event communication","description":"An event announcement design created to communicate an important schedule update clearly and visibly.","image":"assets/gallery/Postpoend%20Poster%2002.png","objective":"Clearly notify the audience that the event has been postponed.","concept":"Use a direct announcement format with the update as the main message.","direction":"Make the postponement message the focal point; keep other details secondary.","designLanguage":"Strong contrast and clear display type make the update easy to notice.","process":["Clarify the update.","Prioritise the announcement.","Check immediate readability."]},{"id":"tickets-80","title":"Tickets 80% Sold Out","category":"PROMOTIONAL DESIGN","discipline":"Event promotion","description":"A ticket-sales update visual designed to highlight availability and encourage timely audience action.","image":"assets/gallery/Ticket%2080%25%20Poster%2013.png","objective":"Communicate that 80% of tickets have been sold and prompt action.","concept":"Turn the ticket-sales milestone into a focused promotional message.","direction":"Give the 80% message visual priority and keep the call to action easy to find.","designLanguage":"Bold high-contrast type makes the milestone register quickly; supporting copy stays secondary.","process":["Lead with the sales milestone.","Create a clear call to action.","Refine for quick viewing."]}];
+ const projects = [
+  {
+    id: "billie-eilish",
+    title: "Billie Eilish Music-Inspired Design",
+    category: "MUSIC POSTER",
+    discipline: "Visual Exploration",
+    description: "A music-inspired poster celebrating Billie Eilish's distinctive artistic identity through expressive imagery, atmospheric visuals and creative composition.",
+    image: "assets/gallery/Billie%20Eilish%2004.png",
+    approach: "An image-led design approach that combines expressive visuals with carefully balanced typography.",
+    objective: "To create an eye-catching music poster that captures the artist's unique personality and alternative music aesthetic.",
+    concept: "Inspired by Billie Eilish's experimental music style, individuality and distinctive visual identity.",
+    direction: "Use a strong central image, atmospheric details and contrasting elements to establish a memorable visual mood.",
+    designLanguage: "Alternative, expressive and contemporary, with bold visual contrasts and carefully arranged typography.",
+    process: [
+      "Explore the artist's visual identity and musical references.",
+      "Develop an expressive image-led poster composition.",
+      "Refine typography, contrast and visual balance."
+    ]
+  },
+  {
+    id: "central-cee",
+    title: "Central Cee Music-Inspired Design",
+    category: "MUSIC POSTER",
+    discipline: "Graphic Design",
+    description: "A contemporary music poster inspired by Central Cee, exploring modern UK rap culture through bold imagery and urban-inspired graphic elements.",
+    image: "assets/gallery/Centrak%20Cee%2001.png",
+    approach: "A bold graphic approach combining artist-focused imagery with modern typography and street-inspired aesthetics.",
+    objective: "To create a striking promotional poster that reflects the artist's identity and modern hip-hop culture.",
+    concept: "Inspired by urban street culture, contemporary rap music and the confident personality associated with the artist.",
+    direction: "Keep the main subject visually prominent while using typography and graphic elements to create a strong composition.",
+    designLanguage: "Urban, bold, modern and expressive, with strong contrast and confident typography.",
+    process: [
+      "Explore urban music references and visual inspiration.",
+      "Arrange the main image and typography into a strong composition.",
+      "Refine contrast, spacing and graphic details."
+    ]
+  },
+  {
+    id: "oreo-shake",
+    title: "Oreo Shake Promotion",
+    category: "ADVERTISING POSTER",
+    discipline: "Advertising Design",
+    description: "A creative product advertisement designed to showcase an Oreo-inspired shake through an attractive and refreshing visual presentation.",
+    image: "assets/gallery/Coffee%20Poster.png",
+    approach: "A product-focused advertising approach that highlights the featured drink through visual hierarchy and appealing presentation.",
+    objective: "To attract attention and create interest in the product through an engaging promotional design.",
+    concept: "Inspired by the delicious combination of chocolate, cookies and creamy milkshake textures.",
+    direction: "Prioritise the product image and support it with attractive typography, colour and promotional messaging.",
+    designLanguage: "Fresh, playful and appetising, using a visually engaging product-focused composition.",
+    process: [
+      "Identify the main product and advertising message.",
+      "Build the promotional layout around the featured drink.",
+      "Refine colours, typography and overall presentation."
+    ]
+  },
+  {
+    id: "the-weeknd",
+    title: "The Weeknd Music-Inspired Design",
+    category: "MUSIC POSTER",
+    discipline: "Visual Design",
+    description: "A cinematic music-inspired poster exploring The Weeknd's artistic identity through dramatic imagery, atmosphere and visual contrast.",
+    image: "assets/gallery/The%20Weeknd%20Design%2003.png",
+    approach: "A cinematic visual approach that uses imagery, lighting and contrast to communicate the mood of the artist.",
+    objective: "To develop a memorable music poster that communicates the atmosphere and personality of the artist's music.",
+    concept: "Inspired by atmospheric music, emotional storytelling and contemporary pop culture.",
+    direction: "Create a dominant visual focal point supported by dramatic lighting, tonal contrast and carefully positioned typography.",
+    designLanguage: "Cinematic, atmospheric, dramatic and contemporary, with a strong emphasis on visual storytelling.",
+    process: [
+      "Explore the artist's atmosphere and visual references.",
+      "Develop the main image and cinematic composition.",
+      "Refine lighting, contrast and typography placement."
+    ]
+  },
+  {
+    id: "hindi-poster",
+    title: "Cinematic Portrait Design",
+    category: "MUSIC POSTER",
+    discipline: "Visual Exploration",
+    description: "A cinematic portrait poster exploring expressive imagery, dramatic atmosphere and visual storytelling through a character-focused composition.",
+    image: "assets/gallery/Hindi%20Poster%2002.png",
+    approach: "A portrait-led design approach that uses composition, tonal contrast and negative space to create visual impact.",
+    objective: "To create an atmospheric poster that captures attention through a strong cinematic portrait.",
+    concept: "Inspired by cinematic storytelling, expressive portraiture and dramatic visual composition.",
+    direction: "Let the portrait lead the composition while using supporting visual elements to establish depth and atmosphere.",
+    designLanguage: "Cinematic, dramatic, expressive and minimal, with a focus on portrait imagery.",
+    process: [
+      "Select the main portrait and establish the visual mood.",
+      "Develop the cinematic composition and supporting elements.",
+      "Refine tonal balance, spacing and typography."
+    ]
+  },
+  {
+    id: "magic-show",
+    title: "Magic Show",
+    category: "EVENT PROMOTION",
+    discipline: "Event Graphic Design",
+    description: "A promotional event poster designed to capture the mystery, excitement and theatrical atmosphere of a live magic show.",
+    image: "assets/gallery/Magican%20Poster%2007.png",
+    approach: "A theatrical design approach combining mysterious imagery, dramatic visual effects and clear event information.",
+    objective: "To promote the magic show and create curiosity and excitement among the target audience.",
+    concept: "Inspired by magical illusions, theatrical performances, mystery and unexpected experiences.",
+    direction: "Build the composition around a strong magical visual, supported by dramatic effects and prominent event typography.",
+    designLanguage: "Mysterious, theatrical, dramatic and imaginative, with strong visual contrast.",
+    process: [
+      "Establish the theme and mysterious visual atmosphere.",
+      "Combine magical imagery with the event information.",
+      "Refine typography, effects and readability."
+    ]
+  },
+  {
+    id: "halloween-party",
+    title: "Halloween Party",
+    category: "EVENT PROMOTION",
+    discipline: "Event Branding",
+    description: "A Halloween-themed event poster created to communicate a spooky atmosphere and promote an exciting themed entertainment experience.",
+    image: "assets/gallery/Main%20Poster%2004.png",
+    approach: "A dark cinematic design approach using Halloween-inspired visuals, atmospheric effects and expressive typography.",
+    objective: "To promote the Halloween party and build excitement and curiosity among the intended audience.",
+    concept: "Inspired by Halloween traditions, haunted environments, spooky characters and themed entertainment.",
+    direction: "Create an immersive dark composition with a prominent event title and clearly organised supporting information.",
+    designLanguage: "Spooky, cinematic, dark and atmospheric, using dramatic visual elements to establish the Halloween identity.",
+    process: [
+      "Explore Halloween references and establish the event theme.",
+      "Develop the main visual composition and event identity.",
+      "Refine typography, atmosphere and information hierarchy."
+    ]
+  },
+  {
+    id: "dj-night",
+    title: "DJ Night Poster",
+    category: "EVENT PROMOTION",
+    discipline: "Event Graphic Design",
+    description: "An energetic promotional poster created to communicate the excitement of a DJ event and capture the atmosphere of nightlife entertainment.",
+    image: "assets/gallery/Party%20Poster.png",
+    approach: "A high-energy graphic approach combining bold typography, dynamic visual elements and nightlife-inspired effects.",
+    objective: "To attract attention and promote the DJ night through an energetic and engaging visual.",
+    concept: "Inspired by nightlife culture, electronic music, club environments and live DJ performances.",
+    direction: "Give the event title and main graphic elements strong visual priority while maintaining a clear information layout.",
+    designLanguage: "Energetic, vibrant, modern and bold, with strong contrast and dynamic typography.",
+    process: [
+      "Establish the event mood and nightlife visual direction.",
+      "Develop the poster layout and main graphic elements.",
+      "Refine typography, contrast and information placement."
+    ]
+  },
+  {
+    id: "event-postponed",
+    title: "Event Postponement Announcement",
+    category: "ANNOUNCEMENT POSTER",
+    discipline: "Social Media Design",
+    description: "An announcement poster designed to communicate an event postponement clearly and professionally through a direct visual message.",
+    image: "assets/gallery/Postpoend%20Poster%2002.png",
+    approach: "An information-focused design approach that prioritises clarity, visibility and effective communication.",
+    objective: "To inform the audience about the event schedule change while keeping the announcement easy to understand.",
+    concept: "A straightforward announcement concept focused on delivering important information quickly.",
+    direction: "Make the postponement message the main focal point and keep supporting information organised and readable.",
+    designLanguage: "Minimal, professional, clear and modern, with strong typography and visual hierarchy.",
+    process: [
+      "Identify the essential announcement information.",
+      "Organise the message into a clear visual hierarchy.",
+      "Refine typography, spacing and readability."
+    ]
+  },
+  {
+    id: "tickets-80",
+    title: "Tickets 80% Sold Out",
+    category: "PROMOTIONAL DESIGN",
+    discipline: "Event Promotion",
+    description: "A ticket-sales promotional design created to highlight an important sales milestone and encourage audiences to secure their event tickets.",
+    image: "assets/gallery/Ticket%2080%25%20Poster%2013.png",
+    approach: "A promotional design approach that uses a strong headline and clear visual hierarchy to communicate urgency.",
+    objective: "To highlight that 80% of tickets have been sold and encourage potential attendees to take action.",
+    concept: "Transforming a ticket-sales milestone into an attention-grabbing promotional message.",
+    direction: "Give the 80% sold-out message visual priority and make the supporting call to action easy to notice.",
+    designLanguage: "Bold, modern, energetic and functional, with high-contrast typography and a clear promotional message.",
+    process: [
+      "Establish the ticket-sales milestone as the main message.",
+      "Create a promotional layout with a clear call to action.",
+      "Refine typography, contrast and information hierarchy."
+    ]
+  }
+];
  const id=new URLSearchParams(window.location.search).get("project");
  const project=projects.find(item=>item.id===id);
  if(!project){document.querySelector(".project-detail-page").innerHTML='<div class="project-not-found"><p class="eyebrow">PROJECT NOT FOUND</p><h1>This work is not <em>available.</em></h1><a class="primary-btn" href="gallery.html">BACK TO GALLERY ↗</a></div>';return;}
