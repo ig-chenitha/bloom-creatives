@@ -305,7 +305,7 @@ if (feedbackForm && window.supabase) {
     title: "Cinematic Portrait Design",
     category: "MUSIC POSTER",
     discipline: "Visual Exploration",
-    description: "Every ending has its own beauty. A moment where golden light meets the darkness, capturing the beauty of something slowly fading away." <br>"Even the most beautiful light has its final moment. As the last rays of sunlight touch her face, darkness slowly takes over.",
+    description: "Every ending has its own beauty. A moment where golden light meets the darkness, capturing the beauty of something slowly fading away.Even the most beautiful light has its final moment. As the last rays of sunlight touch her face, darkness slowly takes over.",
     image: "assets/gallery/Hindi%20Poster%2002.png",
     approach: "A portrait-led design approach that uses composition, tonal contrast and negative space to create visual impact.",
     objective: "To create an atmospheric poster that captures attention through a strong cinematic portrait.",
