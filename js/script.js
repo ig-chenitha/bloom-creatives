@@ -436,47 +436,63 @@ if (feedbackForm && window.supabase) {
 })();
 
 
-// TrueFocus heading animation — lightweight vanilla JS, no React dependency.
+// TrueFocus heading animation — frame follows the active word's real rendered bounds.
 (() => {
-  const wrap = document.querySelector('.true-focus-wrap');
-  if (!wrap) return;
-  const words = Array.from(wrap.querySelectorAll('.focus-word'));
-  const corners = Array.from(wrap.querySelectorAll('.focus-corner'));
-  if (!words.length || !corners.length) return;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let current = 0;
-  let interval = null;
+  const init = () => {
+    const wrap = document.querySelector('.true-focus-wrap');
+    if (!wrap || wrap.dataset.focusReady === 'true') return;
+    const words = Array.from(wrap.querySelectorAll('.focus-word'));
+    const frame = wrap.querySelector('.true-focus-frame');
+    if (!words.length || !frame) return;
+    wrap.dataset.focusReady = 'true';
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0;
+    let interval = null;
 
-  const focusWord = (index) => {
-    current = (index + words.length) % words.length;
-    words.forEach((word, i) => {
-      word.classList.toggle('is-focused', i === current);
-      word.classList.toggle('is-unfocused', i !== current);
-    });
-    const word = words[current];
-    const x = word.offsetLeft - 7;
-    const y = word.offsetTop - 5;
-    const right = word.offsetLeft + word.offsetWidth - 11;
-    const bottom = word.offsetTop + word.offsetHeight;
-    wrap.style.setProperty('--focus-x', x + 'px');
-    wrap.style.setProperty('--focus-y', y + 'px');
-    wrap.style.setProperty('--focus-right', right + 'px');
-    wrap.style.setProperty('--focus-bottom', bottom + 'px');
+    const positionFrame = () => {
+      const word = words[current];
+      if (!word) return;
+      const wrapRect = wrap.getBoundingClientRect();
+      const wordRect = word.getBoundingClientRect();
+      frame.style.left = (wordRect.left - wrapRect.left - 7) + 'px';
+      frame.style.top = (wordRect.top - wrapRect.top - 5) + 'px';
+      frame.style.width = (wordRect.width + 14) + 'px';
+      frame.style.height = (wordRect.height + 10) + 'px';
+    };
+
+    const focusWord = (index) => {
+      current = (index + words.length) % words.length;
+      words.forEach((word, i) => {
+        word.classList.toggle('is-focused', i === current);
+        word.classList.toggle('is-unfocused', i !== current);
+      });
+      requestAnimationFrame(positionFrame);
+    };
+
+    const stop = () => {
+      if (interval !== null) window.clearInterval(interval);
+      interval = null;
+    };
+    const start = () => {
+      stop();
+      if (!reducedMotion && !document.hidden) {
+        interval = window.setInterval(() => focusWord(current + 1), 1550);
+      }
+    };
+
+    focusWord(0);
+    if (!reducedMotion) start();
+    wrap.addEventListener('mouseenter', stop);
+    wrap.addEventListener('mouseleave', start);
+    window.addEventListener('resize', positionFrame, { passive: true });
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(positionFrame);
+    window.addEventListener('load', positionFrame, { once: true });
   };
 
-  const start = () => {
-    if (reducedMotion || interval) return;
-    interval = window.setInterval(() => focusWord(current + 1), 1550);
-  };
-  const stop = () => {
-    if (interval) window.clearInterval(interval);
-    interval = null;
-  };
-
-  focusWord(0);
-  if (!reducedMotion) start();
-  wrap.addEventListener('mouseenter', stop);
-  wrap.addEventListener('mouseleave', start);
-  window.addEventListener('resize', () => focusWord(current));
-  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
 })();
