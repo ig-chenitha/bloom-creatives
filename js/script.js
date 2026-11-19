@@ -235,7 +235,7 @@ if (feedbackForm && window.supabase) {
     discipline: "Visual Exploration",
     description: "A music-inspired poster celebrating Billie Eilish's distinctive artistic identity through expressive imagery, atmospheric visuals and creative composition.",
     image: "assets/gallery/Billie%20Eilish%2004.png",
-    approach: "An image-led design approach that combines expressive visuals with carefully balanced typography.",
+    approach: "An image-led design approach that combines expressive visuals with carefully balanced typography. A blend of electric blue, deep purple & creative energy.Turning inspiration into visual art.Designed to stand out. Created to express.",
     objective: "To create an eye-catching music poster that captures the artist's unique personality and alternative music aesthetic.",
     concept: "Inspired by Billie Eilish's experimental music style, individuality and distinctive visual identity.",
     direction: "Use a strong central image, atmospheric details and contrasting elements to establish a memorable visual mood.",
