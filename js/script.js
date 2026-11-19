@@ -436,44 +436,47 @@ if (feedbackForm && window.supabase) {
 })();
 
 
-// BLOOM TRUE FOCUS HEADING — only animates the home hero title.
+// TrueFocus heading animation — lightweight vanilla JS, no React dependency.
 (() => {
- const init = () => {
-  const heading=document.querySelector("#home .bloom-focus-heading");
-  if(!heading || heading.dataset.focusReady==="true") return;
-  const words=Array.from(heading.querySelectorAll(".bloom-focus-word"));
-  const frame=heading.querySelector(".bloom-focus-frame");
-  if(!words.length || !frame) return;
-  heading.dataset.focusReady="true";
-  const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let active=0,timer=null;
-  const position=()=>{
-   const word=words[active]; if(!word)return;
-   const headingRect=heading.getBoundingClientRect();
-   const wordRect=word.getBoundingClientRect();
-   frame.style.left=(wordRect.left-headingRect.left-7)+"px";
-   frame.style.top=(wordRect.top-headingRect.top-5)+"px";
-   frame.style.width=(wordRect.width+14)+"px";
-   frame.style.height=(wordRect.height+10)+"px";
-   frame.classList.add("is-visible");
+  const wrap = document.querySelector('.true-focus-wrap');
+  if (!wrap) return;
+  const words = Array.from(wrap.querySelectorAll('.focus-word'));
+  const corners = Array.from(wrap.querySelectorAll('.focus-corner'));
+  if (!words.length || !corners.length) return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = 0;
+  let interval = null;
+
+  const focusWord = (index) => {
+    current = (index + words.length) % words.length;
+    words.forEach((word, i) => {
+      word.classList.toggle('is-focused', i === current);
+      word.classList.toggle('is-unfocused', i !== current);
+    });
+    const word = words[current];
+    const x = word.offsetLeft - 7;
+    const y = word.offsetTop - 5;
+    const right = word.offsetLeft + word.offsetWidth - 11;
+    const bottom = word.offsetTop + word.offsetHeight;
+    wrap.style.setProperty('--focus-x', x + 'px');
+    wrap.style.setProperty('--focus-y', y + 'px');
+    wrap.style.setProperty('--focus-right', right + 'px');
+    wrap.style.setProperty('--focus-bottom', bottom + 'px');
   };
-  const focus=(n)=>{
-   active=(n+words.length)%words.length;
-   words.forEach((w,i)=>{w.classList.toggle("is-focused",i===active);w.classList.toggle("is-blurred",i!==active);});
-   position();
+
+  const start = () => {
+    if (reducedMotion || interval) return;
+    interval = window.setInterval(() => focusWord(current + 1), 1550);
   };
-  const stop=()=>{if(timer!==null)clearInterval(timer);timer=null;};
-  const start=()=>{stop();if(!reduced&&!document.hidden)timer=setInterval(()=>focus(active+1),1450);};
-  focus(0);
-  start();
-  heading.addEventListener("mouseenter",stop);
-  heading.addEventListener("mouseleave",start);
-  heading.addEventListener("focusin",stop);
-  heading.addEventListener("focusout",start);
-  document.addEventListener("visibilitychange",()=>document.hidden?stop():start());
-  window.addEventListener("resize",position,{passive:true});
-  if(document.fonts?.ready)document.fonts.ready.then(position);
-  window.addEventListener("load",position,{once:true});
- };
- if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
+  const stop = () => {
+    if (interval) window.clearInterval(interval);
+    interval = null;
+  };
+
+  focusWord(0);
+  if (!reducedMotion) start();
+  wrap.addEventListener('mouseenter', stop);
+  wrap.addEventListener('mouseleave', start);
+  window.addEventListener('resize', () => focusWord(current));
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
 })();
