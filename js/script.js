@@ -436,49 +436,42 @@ if (feedbackForm && window.supabase) {
 })();
 
 
-// BLOOM TRUE FOCUS HEADING
+// BLOOM TRUE FOCUS HEADING — only animates the home hero title.
 (() => {
-  const heading = document.querySelector(".bloom-focus-heading");
-  if (!heading) return;
-  const words = [...heading.querySelectorAll(".bloom-focus-word")];
-  const frame = heading.querySelector(".bloom-focus-frame");
-  if (!words.length || !frame) return;
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  if (reducedMotion.matches) return;
-  let active = 0;
-  let timer = null;
-  let paused = false;
-  const placeFrame = () => {
-    const word = words[active];
-    if (!word) return;
-    const h = heading.getBoundingClientRect();
-    const r = word.getBoundingClientRect();
-    frame.style.left = (r.left - h.left - 5) + "px";
-    frame.style.top = (r.top - h.top - 4) + "px";
-    frame.style.width = (r.width + 10) + "px";
-    frame.style.height = (r.height + 8) + "px";
-    frame.classList.add("is-visible");
+ const init = () => {
+  const heading=document.querySelector("#home .bloom-focus-heading");
+  if(!heading || heading.dataset.focusReady==="true") return;
+  const words=Array.from(heading.querySelectorAll(".bloom-focus-word"));
+  const frame=heading.querySelector(".bloom-focus-frame");
+  if(!words.length || !frame) return;
+  heading.dataset.focusReady="true";
+  const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let active=0,timer=null;
+  const position=()=>{
+   const word=words[active]; if(!word)return;
+   frame.style.left=(word.offsetLeft-6)+"px";
+   frame.style.top=(word.offsetTop-5)+"px";
+   frame.style.width=(word.offsetWidth+12)+"px";
+   frame.style.height=(word.offsetHeight+10)+"px";
+   frame.classList.add("is-visible");
   };
-  const show = (index) => {
-    active = index;
-    words.forEach((word, i) => {
-      word.classList.toggle("is-focused", i === active);
-      word.classList.toggle("is-blurred", i !== active);
-    });
-    placeFrame();
+  const focus=(n)=>{
+   active=(n+words.length)%words.length;
+   words.forEach((w,i)=>{w.classList.toggle("is-focused",i===active);w.classList.toggle("is-blurred",i!==active);});
+   position();
   };
-  const stop = () => { if (timer) window.clearInterval(timer); timer = null; };
-  const start = () => {
-    stop();
-    if (paused || document.hidden) return;
-    timer = window.setInterval(() => show((active + 1) % words.length), 1550);
-  };
-  heading.addEventListener("mouseenter", () => { paused = true; stop(); });
-  heading.addEventListener("mouseleave", () => { paused = false; start(); });
-  heading.addEventListener("focusin", () => { paused = true; stop(); });
-  heading.addEventListener("focusout", () => { paused = false; start(); });
-  document.addEventListener("visibilitychange", start);
-  window.addEventListener("resize", placeFrame, { passive: true });
-  show(0);
+  const stop=()=>{if(timer!==null)clearInterval(timer);timer=null;};
+  const start=()=>{stop();if(!reduced&&!document.hidden)timer=setInterval(()=>focus(active+1),1450);};
+  focus(0);
   start();
+  heading.addEventListener("mouseenter",stop);
+  heading.addEventListener("mouseleave",start);
+  heading.addEventListener("focusin",stop);
+  heading.addEventListener("focusout",start);
+  document.addEventListener("visibilitychange",()=>document.hidden?stop():start());
+  window.addEventListener("resize",position,{passive:true});
+  if(document.fonts?.ready)document.fonts.ready.then(position);
+  window.addEventListener("load",position,{once:true});
+ };
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })();
