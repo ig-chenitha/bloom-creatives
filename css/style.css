@@ -1365,3 +1365,30 @@ a:focus,a:active,a:focus-visible,
 
 /* Keep the supplied full-colour Photoshop mark visible at its native proportions */
 .project-software-list .project-software-icon{width:64px;height:64px;flex:0 0 64px;display:block;object-fit:contain;background:transparent;border:0;border-radius:0;padding:0;box-shadow:none}
+
+
+/* React Bits GooeyNav integration — BLOOM CREATIVES */
+.gooey-nav-root{display:flex;align-items:center;justify-content:center;min-width:0;flex:1}
+.gooey-nav-root .gooey-nav{--gn-font:13px;--gn-x:13px;--gn-y:9px;max-width:100%;font-family:"Outfit",sans-serif}
+.gooey-nav-root .gooey-nav__list{flex-wrap:nowrap}
+.gooey-nav-root .gooey-nav__link{font-weight:600;letter-spacing:.01em}
+.gooey-nav-root .gooey-nav__canvas{z-index:2}
+.gooey-nav-root .gooey-nav__fallback{z-index:1}
+@media(max-width:900px){
+  .nav-shell{gap:12px;padding-inline:18px}
+  .brand{min-width:112px}
+  .brand img{width:112px}
+  .gooey-nav-root{order:3;flex:1 0 100%;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;padding:2px 0 5px}
+  .gooey-nav-root::-webkit-scrollbar{display:none}
+  .gooey-nav-root .gooey-nav__list{width:max-content}
+  .nav-shell:has(.gooey-nav-root){height:auto;min-height:68px;flex-wrap:wrap;padding-block:12px}
+  .nav-cta{margin-left:auto;padding:11px 14px;font-size:10px}
+}
+@media(max-width:520px){
+  .site-header{top:9px;padding-inline:10px}
+  .nav-shell{border-radius:18px;padding:10px 13px}
+  .brand{min-width:100px}
+  .brand img{width:100px}
+  .nav-cta{padding:10px 12px;font-size:9px;gap:6px}
+  .gooey-nav-root .gooey-nav{--gn-font:12px;--gn-x:11px;--gn-y:8px}
+}
