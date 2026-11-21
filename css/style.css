@@ -50,6 +50,19 @@ h1 em,h2 em,h3 em{font-style:normal;font-weight:400;background:var(--iri);backgr
 }
 .is-light:before,.process:before,.gallery-end:before,.designer-note:before,.cta-band:before{background:radial-gradient(55% 60% at 100% 0%,rgba(116,87,255,.28),transparent 70%),radial-gradient(40% 45% at 0% 100%,rgba(255,190,240,.4),transparent 70%)}
 
+/* Process section — use the site's dark visual theme */
+.process{
+  --fg:#fff;--mut:rgba(255,255,255,.7);--ln:rgba(255,255,255,.14);
+  --card:rgba(255,255,255,.045);--chip:rgba(255,255,255,.08);--accent:#a99aff;
+  background:var(--ink);color:var(--fg)
+}
+.process:before{
+  background:radial-gradient(60% 50% at 100% 0%,rgba(116,87,255,.22),transparent 70%),radial-gradient(50% 45% at 0% 100%,rgba(116,87,255,.12),transparent 70%)
+}
+.process h2 em,.process h3 em{background-image:var(--iri)}
+.process .primary-btn{background:var(--violet);color:#fff}
+
+
 /* Home selected works — match the site's dark sections. */
 .work-preview{
   --fg:#fff;--mut:rgba(255,255,255,.68);--ln:rgba(255,255,255,.16);
