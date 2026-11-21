@@ -38,6 +38,8 @@
 </section>
 
 
+<section class="project-detail-bottom"><div><p class="eyebrow">THE CREATIVE APPROACH</p><h2 id="project-approach-title">Made with <em>intention.</em></h2></div><p id="project-approach"></p></section>
+
 <section class="project-software-section">
   <div><p class="eyebrow">TOOLS BEHIND THE WORK</p><h2>Software &amp; <em>tools.</em></h2></div>
   <div class="project-software-items" id="project-software-list"></div>
@@ -70,7 +72,9 @@
            "Adobe Photoshop",
            "Portrait treatment, tonal adjustments and final poster composition."
          ]
-       ]
+       ],
+       "approachTitle": "An atmosphere of quiet intensity.",
+       "approach": "The visual direction leans into a moody, intimate atmosphere. Strong portrait focus, negative space and controlled contrast help the artwork feel expressive without overcrowding the composition."
      },
      {
        "id": "central-cee",
@@ -94,7 +98,9 @@
            "Adobe Photoshop",
            "Image editing, graphic layering and poster layout."
          ]
-       ]
+       ],
+       "approachTitle": "A bold, street-led direction.",
+       "approach": "This concept focuses on attitude and immediacy. A strong image presence and confident type hierarchy give the poster a modern music-campaign feel while keeping the overall layout direct."
      },
      {
        "id": "oreo-shake",
@@ -118,7 +124,9 @@
            "Adobe Photoshop",
            "Product-image enhancement, compositing and advertising layout."
          ]
-       ]
+       ],
+       "approachTitle": "Make the product irresistible.",
+       "approach": "The design gives the featured drink the starring role. A clear product focus, appetising image treatment and simple promotional hierarchy help attract attention and communicate the offer at a glance."
      },
      {
        "id": "the-weeknd",
@@ -142,7 +150,9 @@
            "Adobe Photoshop",
            "Cinematic image treatment, compositing and typography placement."
          ]
-       ]
+       ],
+       "approachTitle": "A cinematic visual mood.",
+       "approach": "The direction uses dramatic image treatment and deliberate contrast to create a sense of depth. The composition is designed to feel like a visual extension of a music identity rather than a generic event notice."
      },
      {
        "id": "magic-show",
@@ -166,7 +176,9 @@
            "Adobe Photoshop",
            "Atmospheric compositing, image effects and event-poster design."
          ]
-       ]
+       ],
+       "approachTitle": "Create mystery before the show.",
+       "approach": "The concept is built around theatrical suspense. A dramatic focal visual and a clear information structure help the poster feel intriguing while ensuring the event message remains easy to find."
      },
      {
        "id": "halloween-party",
@@ -190,7 +202,9 @@
            "Adobe Photoshop",
            "Halloween-themed compositing, effects and promotional layout."
          ]
-       ]
+       ],
+       "approachTitle": "A spooky identity with impact.",
+       "approach": "The creative direction uses Halloween-inspired atmosphere and high-contrast visuals to set expectations for the night. The layout balances themed artwork with the practical event information an audience needs."
      },
      {
        "id": "dj-night",
@@ -214,7 +228,9 @@
            "Adobe Photoshop",
            "Nightlife visual styling, image compositing and poster artwork."
          ]
-       ]
+       ],
+       "approachTitle": "Bring the energy of the night.",
+       "approach": "The poster aims to capture the pace and excitement of a nightlife event. Strong contrast and a clear focal hierarchy help the artwork stand out in a fast-moving social feed."
      },
      {
        "id": "event-postponed",
@@ -238,7 +254,9 @@
            "Adobe Photoshop",
            "Announcement layout, typography and final artwork preparation."
          ]
-       ]
+       ],
+       "approachTitle": "Clarity comes first.",
+       "approach": "For an important event update, the message must be understood immediately. This design prioritises the postponement notice, supported by a clear information hierarchy and a consistent event identity."
      },
      {
        "id": "tickets-80",
@@ -262,7 +280,9 @@
            "Adobe Photoshop",
            "Promotional graphic composition, typography and final export."
          ]
-       ]
+       ],
+       "approachTitle": "Turn progress into momentum.",
+       "approach": "The design treats the sales milestone as the main message. A prominent percentage and focused supporting copy create urgency while keeping the ticket update easy to understand."
      }
    ];
  const id=new URLSearchParams(window.location.search).get("project");
@@ -281,6 +301,8 @@
  document.getElementById("project-category").textContent=project.category;
  document.getElementById("project-description").textContent=project.description;
  document.getElementById("project-style").textContent=project.style||"";
+ document.getElementById("project-approach-title").innerHTML=project.approachTitle||'Made with <em>intention.</em>';
+ document.getElementById("project-approach").textContent=project.approach||"";
  document.getElementById("project-tags").innerHTML=project.tags.map(tag=>"<span class=\"project-tag\">"+escapeHtml(tag)+"</span>").join("");
  const image=document.getElementById("project-image");image.src=project.image;image.alt=project.title;
  const escapeHtml=value=>String(value).replace(/[&<>]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]));
