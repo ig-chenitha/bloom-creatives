@@ -425,9 +425,9 @@ body.work-lightbox-open{overflow:hidden}
 
 /* ---------- Effects ---------- */
 .fx-progress{position:fixed;z-index:80;top:0;left:0;height:3px;width:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,#fff,#8fe9ff,#ffc9f3,#fff)}
-.fx-cursor{position:fixed;z-index:9998;top:0;left:0;width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid #fff;border-radius:50%;pointer-events:none;mix-blend-mode:difference;opacity:0;transition:width .3s var(--ease),height .3s var(--ease),margin .3s var(--ease),background .3s,opacity .3s}
+.fx-cursor{position:fixed;z-index:9998;top:0;left:0;width:10px;height:10px;margin:-5px 0 0 -5px;border:0;border-radius:50%;pointer-events:none;background:rgba(190,174,255,.72);box-shadow:0 0 8px rgba(160,135,255,.48),0 0 18px rgba(140,115,255,.22);opacity:0;transition:opacity .2s ease,box-shadow .25s ease}
 .fx-cursor.is-on{opacity:1}
-.fx-cursor.is-hover{width:64px;height:64px;margin:-32px 0 0 -32px;background:#fff}
+.fx-cursor.is-hover{width:10px;height:10px;margin:-5px 0 0 -5px;background:rgba(210,198,255,.9);box-shadow:0 0 10px rgba(175,150,255,.65),0 0 22px rgba(145,120,255,.34)}
 @media(hover:none),(pointer:coarse){.fx-cursor{display:none}}
 
 /* Page-load + reveal (driven by script.js) */
