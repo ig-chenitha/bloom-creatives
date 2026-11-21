@@ -36,10 +36,7 @@
 <div class="project-detail-image-wrap"><img id="project-image" src="" alt=""></div>
 </section>
 <section class="project-detail-bottom"><div><p class="eyebrow">THE CREATIVE APPROACH</p><h2 id="project-approach-title">Made with <em>intention.</em></h2></div><p id="project-approach">Each selected work reflects an individual visual direction, with attention to composition, clarity and the character of the brief.</p></section>
-<section class="project-process-section">
-  <div class="project-section-heading"><p class="eyebrow">FROM IDEA TO FINAL DESIGN</p><h2 id="project-process-title">The design <em>process.</em></h2></div>
-  <div class="project-process-grid" id="project-process-grid"></div>
-</section>
+
 <section class="project-software-section">
   <div><p class="eyebrow">TOOLS BEHIND THE WORK</p><h2>Software &amp; <em>tools.</em></h2></div>
   <div class="project-software-items" id="project-software-list"></div>
@@ -466,9 +463,7 @@
  const image=document.getElementById("project-image");image.src=project.image;image.alt=project.title;
  document.getElementById("project-approach-title").innerHTML=project.approachTitle;
  document.getElementById("project-approach").textContent=project.approach;
- document.getElementById("project-process-title").innerHTML=project.processTitle||'The design <em>process.</em>';
  const escapeHtml=value=>String(value).replace(/[&<>]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]));
- document.getElementById("project-process-grid").innerHTML=project.process.map((step,index)=>'<article><span>'+escapeHtml(step[0])+'</span><h3>'+escapeHtml(step[1])+'</h3><p>'+escapeHtml(step[2])+'</p></article>').join("");
  image.alt=project.alt;
  document.getElementById("project-software-list").innerHTML=project.tools.map(tool=>'<div class="project-software-list"><span class="project-software-mark">'+escapeHtml(tool[0])+'</span><div><strong>'+escapeHtml(tool[1])+'</strong><p>'+escapeHtml(tool[2])+'</p></div></div>').join("");
 
