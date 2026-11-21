@@ -450,6 +450,8 @@ main{animation:bloomPageLoad .7s var(--ease) both}
   .work-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:900px){
+  /* Keep every page clear of the fixed mobile navigation. */
+  main{padding-top:88px}
   .site-header{top:14px;padding:0 14px}
   .nav-shell{height:58px;padding:0 8px 0 20px}
   .menu{display:flex;width:42px;height:42px;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:0;border-radius:50%;background:#fff;cursor:pointer}
