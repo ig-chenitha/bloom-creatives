@@ -34,7 +34,7 @@
 <a class="project-back-link" href="gallery.html">← BACK TO SELECTED WORK</a>
 <section class="project-detail-hero">
 <div class="project-detail-copy"><div class="section-index">SELECTED WORK <span>— PROJECT DETAILS</span></div><p class="eyebrow" id="project-category">CREATIVE PROJECT</p><h1 id="project-title">Ideas made <em>visible.</em></h1><p class="project-detail-description" id="project-description"></p><div class="project-style-wrap"><span class="project-detail-label">STYLE</span><p id="project-style"></p></div><div class="project-tags-wrap"><span class="project-detail-label">TAGS</span><div id="project-tags"></div></div></div>
-<div class="project-detail-image-wrap"><img id="project-image" src="" alt=""></div>
+<div class="project-detail-image-wrap"><img id="project-image" src="" alt="" loading="eager" decoding="async" fetchpriority="high"></div>
 </section>
 
 
@@ -331,7 +331,7 @@
  document.getElementById("project-approach").textContent=project.approach||"";
  const escapeHtml=value=>String(value).replace(/[&<>]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]));
  document.getElementById("project-tags").innerHTML=project.tags.map(tag=>"<span class=\"project-tag\">"+escapeHtml(tag)+"</span>").join("");
- const image=document.getElementById("project-image");image.src=project.image;image.alt=project.title;
+ const image=document.getElementById("project-image");image.loading="eager";image.decoding="async";image.fetchPriority="high";image.src=project.image;image.alt=project.title;
  image.alt=project.alt;
  document.getElementById("project-software-list").innerHTML=project.tools.map(tool=>'<div class="project-software-list"><span class="project-software-mark">'+escapeHtml(tool[0])+'</span><div><strong>'+escapeHtml(tool[1])+'</strong><p>'+escapeHtml(tool[2])+'</p></div></div>').join("");
 
