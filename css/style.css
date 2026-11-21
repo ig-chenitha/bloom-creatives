@@ -119,7 +119,7 @@ h1 em,h2 em,h3 em{font-style:normal;font-weight:400;background:var(--iri);backgr
 .hero-violet{position:absolute;z-index:0;top:0;bottom:0;left:0;width:66%;border-radius:0 var(--r-xl) var(--r-xl) 0;background:radial-gradient(70% 60% at 20% 20%,#8d75ff 0%,transparent 70%),var(--violet);box-shadow:inset -1px 0 0 rgba(255,255,255,.12);-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 70%,transparent 100%);mask-image:linear-gradient(90deg,#000 0%,#000 70%,transparent 100%)}
 .hero-violet:after{content:"";position:absolute;inset:0;border-radius:inherit;opacity:.5;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
 .hero-visual{position:absolute;z-index:1;inset:0;pointer-events:none}
-.hero-orb{--d:min(46vw,84vh,760px);position:absolute;left:52%;top:52%;width:var(--d);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 60% 40%,#1b1236 0%,var(--ink) 62%);box-shadow:0 0 0 1px rgba(255,255,255,.06),0 0 120px rgba(116,87,255,.25)}
+.hero-orb{--d:min(46vw,84vh,760px);position:absolute;left:52%;top:52%;width:var(--d);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 60% 40%,#1b1236 0%,var(--ink) 62%);box-shadow:0 0 0 1px rgba(255,255,255,.06),0 0 120px rgba(116,87,255,.25);-webkit-mask-image:radial-gradient(circle,#000 0%,#000 76%,rgba(0,0,0,.82) 85%,rgba(0,0,0,.32) 94%,transparent 100%);mask-image:radial-gradient(circle,#000 0%,#000 76%,rgba(0,0,0,.82) 85%,rgba(0,0,0,.32) 94%,transparent 100%)}
 .hero-orb:before{content:"";position:absolute;inset:-1px;border-radius:50%;padding:1px;background:conic-gradient(from 0deg,rgba(255,255,255,0),rgba(143,233,255,.7),rgba(255,255,255,0) 30%,rgba(255,170,240,.6) 55%,rgba(255,255,255,0) 80%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 18s linear infinite}
 .orb-ring-wrap{position:absolute;inset:3.2%;-webkit-mask-image:linear-gradient(90deg,transparent 14%,#000 46%);mask-image:linear-gradient(90deg,transparent 14%,#000 46%)}
 .orb-ring{display:block;width:100%;height:100%;animation:spin 40s linear infinite}
@@ -472,11 +472,7 @@ main{animation:bloomPageLoad .7s var(--ease) both}
 /* Laptop only: shift the hero sculpture slightly to the right */
 @media (min-width:901px) and (max-width:1440px){
   .hero-visual{transform:translateX(12vw)}
-  .hero-orb{
-    left:56%;
-    -webkit-mask-image:radial-gradient(circle, #000 0%, #000 76%, rgba(0,0,0,.82) 85%, rgba(0,0,0,.32) 94%, transparent 100%);
-    mask-image:radial-gradient(circle, #000 0%, #000 76%, rgba(0,0,0,.82) 85%, rgba(0,0,0,.32) 94%, transparent 100%);
-  }
+  .hero-orb{left:56%}
   .hero-canvas,.hero-fallback{left:58%}
 }
 @media(max-width:1100px){
@@ -504,7 +500,7 @@ main{animation:bloomPageLoad .7s var(--ease) both}
   /* hero stacks: violet copy block, then the black sculpture stage */
   .hero-stage{min-height:0;display:flex;flex-direction:column;background:var(--ink)}
   .hero-violet{display:none}
-  .hero-copy{position:relative;order:1;left:auto;top:auto;transform:none;max-width:none;padding:38px clamp(22px,5vw,44px) 34px;background:radial-gradient(80% 60% at 20% 10%,#8d75ff,transparent 70%),var(--violet);border-radius:0 0 var(--r-xl) var(--r-xl)}
+  .hero-copy{position:relative;order:1;left:auto;top:auto;transform:none;max-width:none;padding:38px clamp(22px,5vw,44px) 34px;background:radial-gradient(80% 60% at 20% 10%,#8d75ff,transparent 70%),linear-gradient(180deg,var(--violet) 0%,var(--violet) 72%,var(--ink) 100%);border-radius:0 0 var(--r-xl) var(--r-xl)}
   .hero-copy .eyebrow{font-size:10px;letter-spacing:.14em}
   .hero h1{display:block;margin:20px 0 18px;font-size:clamp(54px,12vw,96px);line-height:1.02}
   .hero-copy>p{display:block;font-size:15px;line-height:1.65}
