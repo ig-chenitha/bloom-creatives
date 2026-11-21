@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
+
 /* ==========================================================================
    BLOOM CREATIVES — design system v2
    Violet + ink, extended display type, iridescent chrome accents.
@@ -15,8 +17,8 @@
   --ink-2:#100b21;
   --ink-3:#1a1432;
   --white:#fff;
-  --display:"Archivo Black","Arial Black","Helvetica Neue",Arial,sans-serif;
-  --body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --display:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Outfit",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --r-xl:44px;--r-lg:30px;--r-md:20px;
   --gap:14px;
   --ease:cubic-bezier(.2,.75,.25,1);
