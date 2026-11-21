@@ -113,14 +113,29 @@
   const pagerButtons = [...stage.querySelectorAll(".hero-pager button")];
   const caption = stage.querySelector("[data-hero-count]");
   const setPalette = (i) => {
+    if (!Number.isInteger(i) || i < 0 || i >= palettes.length) return;
     pal = i;
+    stage.dataset.palette = String(i + 1);
     target.phase = palettes[i].phase.slice();
     target.tint = palettes[i].tint.slice();
-    pagerButtons.forEach((b, n) => { b.classList.toggle("is-active", n === i); b.setAttribute("aria-pressed", String(n === i)); });
+    pagerButtons.forEach((b, n) => {
+      b.classList.toggle("is-active", n === i);
+      b.setAttribute("aria-pressed", String(n === i));
+    });
     if (caption) caption.textContent = String(i + 1).padStart(2, "0") + " / " + String(palettes.length).padStart(2, "0");
-    if (reduceMotion) { cur.phase = target.phase.slice(); cur.tint = target.tint.slice(); draw && draw(performance.now()); }
+    if (reduceMotion) {
+      cur.phase = target.phase.slice();
+      cur.tint = target.tint.slice();
+      if (draw) draw(performance.now());
+    }
   };
-  pagerButtons.forEach((b, n) => b.addEventListener("click", () => setPalette(n)));
+  pagerButtons.forEach((b, n) => {
+    b.addEventListener("click", (event) => {
+      event.preventDefault();
+      setPalette(n);
+    });
+  });
+  setPalette(0);
 
   /* ---------- WebGL liquid chrome ---------- */
   let draw = null;
