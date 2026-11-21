@@ -17,7 +17,7 @@
   <meta name="twitter:title" content="Selected Design Project | BLOOM CREATIVES">
   <meta name="twitter:description" content="Explore the creative process, design approach and software behind selected graphic design projects by BLOOM CREATIVES.">
   <meta name="twitter:image" content="https://bloom-creatives.pages.dev/assets/gallery/Billie%20Eilish%2004.webp">
-<style>.project-tags-wrap{margin:2.5rem 0}.project-tags-wrap>div{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1rem}.project-tag{display:inline-flex;padding:.55rem .9rem;border:1px solid var(--line,rgba(255,255,255,.18));border-radius:999px;font-size:.72rem;letter-spacing:.06em;color:var(--muted,#aaa)}.project-profile-grid article h3{font-size:1rem;line-height:1.6;overflow-wrap:anywhere}</style></head>
+<style>.project-tags-wrap{margin:2.5rem 0}.project-tags-wrap>div{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1rem}.project-tag{display:inline-flex;padding:.55rem .9rem;border:1px solid var(--line,rgba(255,255,255,.18));border-radius:999px;font-size:.72rem;letter-spacing:.06em;color:var(--muted,#aaa)}.project-profile-grid article h3{font-size:1rem;line-height:1.6;overflow-wrap:anywhere}.project-palette-swatches{display:flex;flex-wrap:wrap;gap:1rem;margin-top:.9rem}.project-palette-swatch{display:flex;align-items:center;gap:.55rem;min-width:125px}.project-palette-chip{width:34px;height:34px;flex:0 0 34px;border-radius:50%;background:var(--swatch);border:1px solid rgba(128,128,128,.35);box-shadow:0 2px 8px rgba(0,0,0,.12)}.project-palette-name{font-size:.78rem;line-height:1.35;color:var(--muted,#aaa)}</style></head>
 <body>
 <header class="site-header"><div class="nav-shell">
 <a class="brand" href="../index.html#home" aria-label="BLOOM CREATIVES home"><img src="../assets/bloom-logo.svg" alt="BLOOM CREATIVES"></a>
@@ -582,7 +582,24 @@
  document.getElementById("project-process-title").innerHTML=project.processTitle||'The design <em>process.</em>';
  const escapeHtml=value=>String(value).replace(/[&<>]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]));
  document.getElementById("project-process-grid").innerHTML=project.process.map((step,index)=>'<article><span>'+escapeHtml(step[0])+'</span><h3>'+escapeHtml(step[1])+'</h3><p>'+escapeHtml(step[2])+'</p></article>').join("");
- document.getElementById("project-profile-grid").innerHTML=[["DESIGN STYLE",project.style],["COLOR PALETTE",project.palette.join(" • ")],["DESIGN ELEMENTS",project.elements.join(" • ")],["IMAGE ALT TEXT",project.alt]].map(item=>"<article><span>"+escapeHtml(item[0])+"</span><h3>"+escapeHtml(item[1])+"</h3></article>").join("");
+ const paletteColors = {
+  "Charcoal Black":"#252525","Deep Shadow Grey":"#454743","Muted Olive":"#77785A","Soft Neutral":"#D8D2C7",
+  "Black":"#111111","Concrete Grey":"#858585","Cool Blue":"#7897B8","Off White":"#F2F0E9",
+  "Oreo Brown":"#76513D","Cream":"#E8D5B5","Milk White":"#F7F4EE","Chocolate Black":"#2A1D19",
+  "Deep Black":"#100D10","Burgundy":"#641E32","Crimson Red":"#B51F36","Warm Shadow":"#49312E",
+  "Midnight Black":"#11111B","Deep Purple":"#39235B","Mystic Red":"#9E243A","Antique Gold":"#B08D57",
+  "Pumpkin Orange":"#E87522","Blood Red":"#8F1728","Smoky Purple":"#51405F",
+  "Jet Black":"#090909","Electric Blue":"#287BDB","Neon Purple":"#9B4DCC","Bright White":"#FFFFFF",
+  "White":"#FFFFFF","Warning Red":"#D62828","Neutral Grey":"#929292",
+  "Bright Orange":"#FF7417","Warm Yellow":"#F4C542"
+ };
+ const profileCards = [
+  "<article><span>DESIGN STYLE</span><h3>"+escapeHtml(project.style)+"</h3></article>",
+  "<article class='project-palette-card'><span>COLOR PALETTE</span><div class='project-palette-swatches'>"+project.palette.map(color=>"<div class='project-palette-swatch'><span class='project-palette-chip' style='--swatch:"+(paletteColors[color]||"#888888")+"' aria-label='"+escapeHtml(color)+"'></span><span class='project-palette-name'>"+escapeHtml(color)+"</span></div>").join("")+"</div></article>",
+  "<article><span>DESIGN ELEMENTS</span><h3>"+escapeHtml(project.elements.join(" • "))+"</h3></article>",
+  "<article><span>IMAGE ALT TEXT</span><h3>"+escapeHtml(project.alt)+"</h3></article>"
+ ];
+ document.getElementById("project-profile-grid").innerHTML=profileCards.join("");
  document.getElementById("project-short-description").textContent=project.short;
  document.getElementById("project-tags").innerHTML=project.tags.map(tag=>"<span class=\"project-tag\">"+escapeHtml(tag)+"</span>").join("");
  image.alt=project.alt;
