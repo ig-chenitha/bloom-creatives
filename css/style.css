@@ -444,6 +444,11 @@ main{animation:bloomPageLoad .7s var(--ease) both}
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
+/* Laptop only: shift the hero sculpture slightly to the right */
+@media (min-width:901px) and (max-width:1440px){
+  .hero-orb{left:56%}
+  .hero-canvas,.hero-fallback{left:58%}
+}
 @media(max-width:1100px){
   .navlinks{gap:0}.navlinks a{padding:9px 11px}
   .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
