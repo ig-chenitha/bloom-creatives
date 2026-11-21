@@ -66,7 +66,7 @@
  document.getElementById("project-approach-title").innerHTML=project.approachTitle;
  document.getElementById("project-approach").textContent=project.approach;
  document.getElementById("project-process-title").innerHTML=project.processTitle||'The design <em>process.</em>';
- const escapeHtml=value=>String(value).replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;","\\"":"&quot;","'":"&#39;"}[char]));
+ const escapeHtml=value=>String(value).replace(/[&<>]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]));
  document.getElementById("project-process-grid").innerHTML=project.process.map((step,index)=>'<article><span>'+escapeHtml(step[0])+'</span><h3>'+escapeHtml(step[1])+'</h3><p>'+escapeHtml(step[2])+'</p></article>').join("");
  document.getElementById("project-software-list").innerHTML=project.tools.map(tool=>'<div class="project-software-list"><span class="project-software-mark">'+escapeHtml(tool[0])+'</span><div><strong>'+escapeHtml(tool[1])+'</strong><p>'+escapeHtml(tool[2])+'</p></div></div>').join("");
 
