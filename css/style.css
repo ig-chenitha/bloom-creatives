@@ -459,6 +459,7 @@ main{animation:bloomPageLoad .7s var(--ease) both}
    ========================================================================== */
 /* Laptop only: shift the hero sculpture slightly to the right */
 @media (min-width:901px) and (max-width:1440px){
+  .hero-visual{transform:translateX(12vw)}
   .hero-orb{left:56%}
   .hero-canvas,.hero-fallback{left:58%}
 }
