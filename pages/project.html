@@ -21,17 +21,7 @@
 .project-tags-wrap{margin:2.5rem 0}
 .project-tags-wrap>div{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1rem}
 .project-tag{display:inline-flex;padding:.55rem .9rem;border:1px solid var(--line,rgba(255,255,255,.18));border-radius:999px;font-size:.72rem;letter-spacing:.06em;color:var(--muted,#aaa)}
-.project-profile-grid{align-items:stretch;gap:16px}
-.project-profile-grid article{min-height:250px;padding:26px;justify-content:space-between;gap:22px;background:#15131c;border:1px solid #302c38;border-radius:18px;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;transition:none}
-.project-profile-grid article:hover{background:#15131c;border-color:#302c38;transform:none;box-shadow:none}
-.project-profile-grid article>span{color:#a99aff;font-size:.7rem;font-weight:600;letter-spacing:.15em}
-.project-profile-grid article h3{margin:0;padding:0;font-size:clamp(1.1rem,1.5vw,1.35rem);line-height:1.4;color:#fff;overflow-wrap:anywhere}
-.project-palette-swatches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem 1rem;margin-top:0}
-.project-palette-swatch{display:flex;align-items:center;gap:.6rem;min-width:0}
-.project-palette-chip{width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:var(--swatch);border:1px solid rgba(255,255,255,.18);box-shadow:none}
-.project-palette-name{font-size:.78rem;line-height:1.3;color:#c7c3d0}
-@media(max-width:900px){.project-profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){.project-profile-grid{grid-template-columns:1fr}.project-profile-grid article{min-height:190px;padding:22px}.project-palette-swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.project-profile-grid article{min-height:190px;padding:22px}.project-palette-swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head>
 <body>
 <header class="site-header"><div class="nav-shell">
@@ -51,7 +41,7 @@
   <div class="project-section-heading"><p class="eyebrow">FROM IDEA TO FINAL DESIGN</p><h2 id="project-process-title">The design <em>process.</em></h2></div>
   <div class="project-process-grid" id="project-process-grid"></div>
 </section>
-<section class="project-process-section"><div class="project-section-heading"><p class="eyebrow">PROJECT PROFILE</p><h2>Visual <em>direction.</em></h2></div><div class="project-process-grid" id="project-profile-grid"></div><div class="project-detail-bottom"><div><p class="eyebrow">GALLERY CARD</p><h2>Short <em>description.</em></h2></div><p id="project-short-description"></p></div><div class="project-tags-wrap"><p class="eyebrow">WEBSITE GALLERY TAGS</p><div id="project-tags"></div></div></section><section class="project-software-section">
+<section class="project-software-section">
   <div><p class="eyebrow">TOOLS BEHIND THE WORK</p><h2>Software &amp; <em>tools.</em></h2></div>
   <div class="project-software-list" id="project-software-list"></div>
 </section>
@@ -597,26 +587,6 @@
  document.getElementById("project-process-title").innerHTML=project.processTitle||'The design <em>process.</em>';
  const escapeHtml=value=>String(value).replace(/[&<>]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]));
  document.getElementById("project-process-grid").innerHTML=project.process.map((step,index)=>'<article><span>'+escapeHtml(step[0])+'</span><h3>'+escapeHtml(step[1])+'</h3><p>'+escapeHtml(step[2])+'</p></article>').join("");
- const paletteColors = {
-  "Charcoal Black":"#252525","Deep Shadow Grey":"#454743","Muted Olive":"#77785A","Soft Neutral":"#D8D2C7",
-  "Black":"#111111","Concrete Grey":"#858585","Cool Blue":"#7897B8","Off White":"#F2F0E9",
-  "Oreo Brown":"#76513D","Cream":"#E8D5B5","Milk White":"#F7F4EE","Chocolate Black":"#2A1D19",
-  "Deep Black":"#100D10","Burgundy":"#641E32","Crimson Red":"#B51F36","Warm Shadow":"#49312E",
-  "Midnight Black":"#11111B","Deep Purple":"#39235B","Mystic Red":"#9E243A","Antique Gold":"#B08D57",
-  "Pumpkin Orange":"#E87522","Blood Red":"#8F1728","Smoky Purple":"#51405F",
-  "Jet Black":"#090909","Electric Blue":"#287BDB","Neon Purple":"#9B4DCC","Bright White":"#FFFFFF",
-  "White":"#FFFFFF","Warning Red":"#D62828","Neutral Grey":"#929292",
-  "Bright Orange":"#FF7417","Warm Yellow":"#F4C542"
- };
- const profileCards = [
-  "<article><span>DESIGN STYLE</span><h3>"+escapeHtml(project.style)+"</h3></article>",
-  "<article class='project-palette-card'><span>COLOR PALETTE</span><div class='project-palette-swatches'>"+project.palette.map(color=>"<div class='project-palette-swatch'><span class='project-palette-chip' style='--swatch:"+(paletteColors[color]||"#888888")+"' aria-label='"+escapeHtml(color)+"'></span><span class='project-palette-name'>"+escapeHtml(color)+"</span></div>").join("")+"</div></article>",
-  "<article><span>DESIGN ELEMENTS</span><h3>"+escapeHtml(project.elements.join(" • "))+"</h3></article>",
-  ""
- ];
- document.getElementById("project-profile-grid").innerHTML=profileCards.join("");
- document.getElementById("project-short-description").textContent=project.short;
- document.getElementById("project-tags").innerHTML=project.tags.map(tag=>"<span class=\"project-tag\">"+escapeHtml(tag)+"</span>").join("");
  image.alt=project.alt;
  document.getElementById("project-software-list").innerHTML=project.tools.map(tool=>'<div class="project-software-list"><span class="project-software-mark">'+escapeHtml(tool[0])+'</span><div><strong>'+escapeHtml(tool[1])+'</strong><p>'+escapeHtml(tool[2])+'</p></div></div>').join("");
 
