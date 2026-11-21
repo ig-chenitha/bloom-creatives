@@ -597,7 +597,7 @@
   "<article><span>DESIGN STYLE</span><h3>"+escapeHtml(project.style)+"</h3></article>",
   "<article class='project-palette-card'><span>COLOR PALETTE</span><div class='project-palette-swatches'>"+project.palette.map(color=>"<div class='project-palette-swatch'><span class='project-palette-chip' style='--swatch:"+(paletteColors[color]||"#888888")+"' aria-label='"+escapeHtml(color)+"'></span><span class='project-palette-name'>"+escapeHtml(color)+"</span></div>").join("")+"</div></article>",
   "<article><span>DESIGN ELEMENTS</span><h3>"+escapeHtml(project.elements.join(" • "))+"</h3></article>",
-  "<article><span>IMAGE ALT TEXT</span><h3>"+escapeHtml(project.alt)+"</h3></article>"
+  ""
  ];
  document.getElementById("project-profile-grid").innerHTML=profileCards.join("");
  document.getElementById("project-short-description").textContent=project.short;
