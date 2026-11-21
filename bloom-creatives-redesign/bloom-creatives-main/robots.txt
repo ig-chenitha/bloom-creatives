@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin/
+
+Sitemap: https://bloom-creatives.pages.dev/sitemap.xml
