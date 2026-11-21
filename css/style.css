@@ -218,7 +218,7 @@ h1 em,h2 em,h3 em{font-style:normal;font-weight:400;background:var(--iri);backgr
 /* Process */
 .process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .process-card{position:relative;min-height:340px;display:flex;flex-direction:column;padding:26px;border:1px solid var(--ln);border-radius:var(--r-lg);background:var(--card);overflow:hidden;transition:background .4s,color .4s,transform .45s var(--ease),border-color .4s}
-.process-card:hover{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-8px)}
+.process-card:hover{background:var(--violet);color:#fff;border-color:var(--violet);transform:translateY(-8px)}
 .process-card:hover p{color:rgba(255,255,255,.75)}
 .process-card:hover .process-tag{color:#c9bfff}
 .process-number{font:400 clamp(54px,6vw,86px)/.9 var(--display);color:transparent;-webkit-text-stroke:1.5px currentColor;letter-spacing:-.04em}
