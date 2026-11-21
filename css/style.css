@@ -353,6 +353,7 @@ body.work-lightbox-open{overflow:hidden}
 .project-process-grid h3{margin:auto 0 10px;padding-top:34px;font-size:clamp(22px,2vw,28px)}
 .project-process-grid p{margin:0;color:var(--mut);font-size:15px;line-height:1.65}
 .project-software-section{align-items:center}
+.project-software-items{display:grid;gap:14px}
 .project-software-list{display:flex;align-items:center;gap:18px;padding:20px 24px;border:1px solid var(--ln);border-radius:var(--r-lg);background:var(--card)}
 .project-software-list strong{display:block;font-size:17px}
 .project-software-list p{margin:2px 0 0;color:var(--mut);font-size:14px}
