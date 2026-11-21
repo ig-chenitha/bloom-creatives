@@ -44,11 +44,19 @@ h1 em,h2 em,h3 em{font-style:normal;font-weight:400;background:var(--iri);backgr
   position:relative;width:min(1560px,calc(100% - 28px));margin:var(--gap) auto;padding:clamp(48px,7vw,104px) clamp(22px,5.5vw,88px);border-radius:var(--r-xl);background:var(--ink);color:var(--fg);overflow:hidden;isolation:isolate
 }
 .section-wrap:before{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:radial-gradient(60% 50% at 100% 0%,rgba(116,87,255,.22),transparent 70%),radial-gradient(50% 45% at 0% 100%,rgba(116,87,255,.12),transparent 70%)}
-.is-light,.process,.work-preview,.gallery-end,.designer-note,.cta-band{
+.is-light,.process,.gallery-end,.designer-note,.cta-band{
   --fg:var(--ink);--mut:rgba(7,5,15,.68);--ln:rgba(7,5,15,.16);--card:rgba(255,255,255,.6);--chip:rgba(7,5,15,.07);--accent:var(--violet-deep);
   background:var(--lilac)
 }
-.is-light:before,.process:before,.work-preview:before,.gallery-end:before,.designer-note:before,.cta-band:before{background:radial-gradient(55% 60% at 100% 0%,rgba(116,87,255,.28),transparent 70%),radial-gradient(40% 45% at 0% 100%,rgba(255,190,240,.4),transparent 70%)}
+.is-light:before,.process:before,.gallery-end:before,.designer-note:before,.cta-band:before{background:radial-gradient(55% 60% at 100% 0%,rgba(116,87,255,.28),transparent 70%),radial-gradient(40% 45% at 0% 100%,rgba(255,190,240,.4),transparent 70%)}
+
+/* Home selected works — match the site's dark sections. */
+.work-preview{
+  --fg:#fff;--mut:rgba(255,255,255,.68);--ln:rgba(255,255,255,.16);
+  --card:rgba(255,255,255,.06);--chip:rgba(255,255,255,.08);--accent:var(--violet-hi);
+  background:radial-gradient(70% 65% at 100% 0%,rgba(116,87,255,.16),transparent 72%),var(--ink)
+}
+.work-preview:before{background:radial-gradient(55% 60% at 100% 0%,rgba(116,87,255,.13),transparent 70%),radial-gradient(40% 45% at 0% 100%,rgba(116,87,255,.08),transparent 70%)}
 .bloom-impact{--accent:#fff;background:linear-gradient(135deg,#5b3cf0,var(--violet-deep) 60%,#2a1590)}
 .bloom-impact:before{background:radial-gradient(45% 60% at 90% 10%,rgba(143,233,255,.3),transparent 70%),radial-gradient(45% 55% at 10% 100%,rgba(255,170,240,.28),transparent 70%)}
 .is-light h1 em,.is-light h2 em,.process h2 em,.work-preview h2 em,.gallery-end h2 em,.designer-note h2 em,.cta-band h2 em,.process h3 em{background-image:linear-gradient(100deg,#4326c9,#8a3df0 30%,#e0489f 62%,#4326c9);background-size:220% 100%}
