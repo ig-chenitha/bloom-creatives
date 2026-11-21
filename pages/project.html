@@ -32,10 +32,10 @@
 <main class="project-detail-page section-wrap">
 <a class="project-back-link" href="gallery.html">← BACK TO SELECTED WORK</a>
 <section class="project-detail-hero">
-<div class="project-detail-copy"><div class="section-index">SELECTED WORK <span>— PROJECT DETAILS</span></div><p class="eyebrow" id="project-category">CREATIVE PROJECT</p><h1 id="project-title">Ideas made <em>visible.</em></h1><p class="project-detail-description" id="project-description"></p><div class="project-detail-meta"><span>DISCIPLINE</span><strong id="project-discipline"></strong></div></div>
+<div class="project-detail-copy"><div class="section-index">SELECTED WORK <span>— PROJECT DETAILS</span></div><p class="eyebrow" id="project-category">CREATIVE PROJECT</p><h1 id="project-title">Ideas made <em>visible.</em></h1><p class="project-detail-description" id="project-description"></p><div class="project-style-wrap"><span class="project-detail-label">STYLE</span><p id="project-style"></p></div><div class="project-tags-wrap"><span class="project-detail-label">TAGS</span><div id="project-tags"></div></div></div>
 <div class="project-detail-image-wrap"><img id="project-image" src="" alt=""></div>
 </section>
-<section class="project-detail-bottom"><div><p class="eyebrow">THE CREATIVE APPROACH</p><h2 id="project-approach-title">Made with <em>intention.</em></h2></div><p id="project-approach">Each selected work reflects an individual visual direction, with attention to composition, clarity and the character of the brief.</p></section>
+
 
 <section class="project-software-section">
   <div><p class="eyebrow">TOOLS BEHIND THE WORK</p><h2>Software &amp; <em>tools.</em></h2></div>
@@ -49,6 +49,7 @@
  const projects =  [
    {
      "id": "billie-eilish",
+     "style": "Moody • Editorial • Cinematic • Contemporary",
      "title": "Billie Eilish Music-Inspired Design",
      "category": "MUSIC POSTER",
      "discipline": "Music poster design",
@@ -93,6 +94,7 @@
    },
    {
      "id": "central-cee",
+     "style": "Urban • Contemporary • Bold • Editorial",
      "title": "Central Cee Music-Inspired Design",
      "category": "MUSIC POSTER",
      "discipline": "Music poster design",
@@ -137,6 +139,7 @@
    },
    {
      "id": "oreo-shake",
+     "style": "Commercial • Playful • Product-Focused • Bold",
      "title": "Oreo Shake Promotion",
      "category": "ADVERTISING POSTER",
      "discipline": "Food & beverage advertising",
@@ -181,6 +184,7 @@
    },
    {
      "id": "the-weeknd",
+     "style": "Cinematic • Dramatic • Atmospheric • Editorial",
      "title": "The Weeknd Music-Inspired Design",
      "category": "MUSIC POSTER",
      "discipline": "Music poster design",
@@ -225,6 +229,7 @@
    },
    {
      "id": "magic-show",
+     "style": "Theatrical • Mysterious • Dramatic • Vintage-Inspired",
      "title": "Magic Show",
      "category": "EVENT PROMOTION",
      "discipline": "Event poster design",
@@ -269,6 +274,7 @@
    },
    {
      "id": "halloween-party",
+     "style": "Spooky • Dark • Cinematic • Themed",
      "title": "Halloween Party",
      "category": "EVENT PROMOTION",
      "discipline": "Event poster design",
@@ -313,6 +319,7 @@
    },
    {
      "id": "dj-night",
+     "style": "Energetic • Nightlife • Bold • Contemporary",
      "title": "DJ Night Poster",
      "category": "EVENT PROMOTION",
      "discipline": "Nightlife event design",
@@ -357,6 +364,7 @@
    },
    {
      "id": "event-postponed",
+     "style": "Informational • Direct • Minimal • Clear",
      "title": "Event Postponed",
      "category": "ANNOUNCEMENT POSTER",
      "discipline": "Event announcement design",
@@ -401,6 +409,7 @@
    },
    {
      "id": "tickets-80",
+     "style": "Promotional • Urgent • Bold • Marketing-Led",
      "title": "Tickets 80% Sold Out",
      "category": "PROMOTIONAL DESIGN",
      "discipline": "Ticket-sales promotion",
@@ -459,7 +468,8 @@
  document.getElementById("project-title").textContent=project.title;
  document.getElementById("project-category").textContent=project.category;
  document.getElementById("project-description").textContent=project.description;
- document.getElementById("project-discipline").textContent=project.discipline;
+ document.getElementById("project-style").textContent=project.style||"";
+ document.getElementById("project-tags").innerHTML=project.tags.map(tag=>"<span class=\"project-tag\">"+escapeHtml(tag)+"</span>").join("");
  const image=document.getElementById("project-image");image.src=project.image;image.alt=project.title;
  document.getElementById("project-approach-title").innerHTML=project.approachTitle;
  document.getElementById("project-approach").textContent=project.approach;
