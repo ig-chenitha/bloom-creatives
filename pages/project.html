@@ -303,9 +303,9 @@
  document.getElementById("project-style").textContent=project.style||"";
  document.getElementById("project-approach-title").innerHTML=project.approachTitle||'Made with <em>intention.</em>';
  document.getElementById("project-approach").textContent=project.approach||"";
+ const escapeHtml=value=>String(value).replace(/[&<>]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]));
  document.getElementById("project-tags").innerHTML=project.tags.map(tag=>"<span class=\"project-tag\">"+escapeHtml(tag)+"</span>").join("");
  const image=document.getElementById("project-image");image.src=project.image;image.alt=project.title;
- const escapeHtml=value=>String(value).replace(/[&<>]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]));
  image.alt=project.alt;
  document.getElementById("project-software-list").innerHTML=project.tools.map(tool=>'<div class="project-software-list"><span class="project-software-mark">'+escapeHtml(tool[0])+'</span><div><strong>'+escapeHtml(tool[1])+'</strong><p>'+escapeHtml(tool[2])+'</p></div></div>').join("");
 
