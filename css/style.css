@@ -189,12 +189,15 @@ h1 em,h2 em,h3 em{font-style:normal;font-weight:400;background:var(--iri);backgr
 /* About */
 .about-deck-top{margin-bottom:0}
 .bloom-about-intro{display:grid;grid-template-columns:minmax(260px,.8fr) 1.2fr;gap:clamp(30px,6vw,110px);align-items:center}
-.bloom-about-mark{position:relative;aspect-ratio:1;width:min(100%,460px);justify-self:center;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2a1d5c,var(--ink-2) 70%);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 110px rgba(116,87,255,.35)}
+.bloom-about-mark{position:relative;aspect-ratio:1;width:min(100%,460px);justify-self:center;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2a1d5c,var(--ink-2) 70%);box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 110px rgba(116,87,255,.35);perspective:900px}
 .bloom-about-mark:before{content:"";position:absolute;inset:-14px;border-radius:50%;background:conic-gradient(from 0deg,#7457ff,#8fe9ff,#ffc9f3,#7457ff);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 1px));mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 1px));animation:spin 14s linear infinite}
-.bloom-about-mark img{width:52%;height:auto;filter:drop-shadow(0 0 30px rgba(143,120,255,.7));animation:floatImg 7s ease-in-out infinite}
+.bloom-about-mark img{position:relative;z-index:1;width:72%;height:auto;filter:drop-shadow(0 0 34px rgba(143,120,255,.78));animation:floatImg 7s ease-in-out infinite}
 @keyframes floatImg{50%{transform:translateY(-10px) rotate(-3deg)}}
-.bloom-about-mark i{position:absolute;right:6%;bottom:12%;width:22%;aspect-ratio:1;border-radius:50%;background:conic-gradient(from 210deg,#7457ff,#8fe9ff,#ffc9f3,#fff,#7457ff);box-shadow:inset -8px -10px 22px rgba(7,5,15,.7),0 0 40px rgba(116,87,255,.6);animation:floatY2 6s ease-in-out infinite}
-@keyframes floatY2{50%{transform:translateY(-12px)}}
+.bloom-about-mark i{position:absolute;z-index:2;right:5%;bottom:10%;width:31%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 24%,rgba(255,255,255,.98) 0 3%,rgba(255,255,255,.35) 9%,transparent 24%),radial-gradient(circle at 35% 30%,#a8f4ff 0%,#8d9cff 25%,#b88bff 48%,#f4b9ed 68%,#4431b5 100%);box-shadow:inset -13px -16px 24px rgba(7,5,15,.55),inset 7px 8px 18px rgba(255,255,255,.35),0 0 48px rgba(116,87,255,.72);transform-style:preserve-3d;animation:floatY2 7s ease-in-out infinite}
+.bloom-about-mark i:before{content:"";position:absolute;inset:8%;border-radius:50%;background:conic-gradient(from 35deg,transparent 0 22%,rgba(255,255,255,.8) 30%,transparent 39% 65%,rgba(143,233,255,.65) 74%,transparent 82%);filter:blur(5px);mix-blend-mode:screen;animation:orbSheen 8s linear infinite}
+.bloom-about-mark i:after{content:"";position:absolute;inset:18% 12% 48% 24%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.72),transparent 70%);filter:blur(8px);transform:rotate(-28deg)}
+@keyframes orbSheen{to{transform:rotate(360deg)}}
+@keyframes floatY2{0%,100%{transform:translate3d(0,0,0) rotateY(-12deg) rotateX(8deg)}50%{transform:translate3d(-8px,-18px,22px) rotateY(18deg) rotateX(-8deg)}}
 .bloom-about-copy .eyebrow{margin-bottom:6px}
 .bloom-about-copy h2{margin-bottom:28px}
 .bloom-about-copy p:not(.eyebrow){max-width:560px;color:var(--mut);font-size:17px;line-height:1.75}
