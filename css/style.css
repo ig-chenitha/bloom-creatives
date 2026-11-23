@@ -130,7 +130,7 @@ h1 em,h2 em,h3 em{font-style:normal;font-weight:400;background:var(--iri);backgr
 .hero-visual{--d:min(46vw,84vh,760px)}
 .hero-canvas{width:calc(min(46vw,84vh,760px)*1.18);height:calc(min(46vw,84vh,760px)*1.18)}
 .hero-fallback{position:absolute;left:54%;top:52%;width:calc(min(46vw,84vh,760px)*.56);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:conic-gradient(from 210deg,#7457ff,#8fe9ff,#ffc9f3,#fff,#7457ff);filter:blur(1px) saturate(1.2);box-shadow:inset -22px -26px 60px rgba(7,5,15,.75),inset 18px 20px 40px rgba(255,255,255,.5),0 0 90px rgba(116,87,255,.5);animation:floatY 7s ease-in-out infinite}
-.hero-canvas.is-live~.hero-fallback{opacity:0;transition:opacity .8s}
+.hero-canvas.is-live~.hero-fallback{opacity:0;transition:opacity 1.2s ease}
 
 /* 01–04 hero colour themes: visible on both WebGL and CSS fallback */
 .hero-stage[data-palette="1"] .hero-canvas{filter:hue-rotate(0deg) saturate(1)}
@@ -141,7 +141,7 @@ h1 em,h2 em,h3 em{font-style:normal;font-weight:400;background:var(--iri);backgr
 .hero-stage[data-palette="3"] .hero-fallback{background:conic-gradient(from 210deg,#39e7ee,#9bffd7,#eaffff,#4b8cff,#39e7ee)}
 .hero-stage[data-palette="4"] .hero-fallback{background:conic-gradient(from 210deg,#ffb347,#ffe66d,#fff1c2,#9a70ff,#ffb347)}
 .hero-canvas{transition:opacity 1.2s ease,filter .45s ease}
-.hero-fallback{transition:opacity .8s,filter .45s,background .45s}
+.hero-fallback{transition:opacity 1.2s ease,filter .45s,background .45s;will-change:opacity}
 
 @keyframes floatY{50%{transform:translate(-50%,calc(-50% - 14px))}}
 .hero-poster img{display:block;width:100%;height:100%;object-fit:cover}
